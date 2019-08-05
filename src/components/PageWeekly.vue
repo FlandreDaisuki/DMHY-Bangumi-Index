@@ -4,9 +4,14 @@
       <span>新番資源索引</span>
       <span>{{ todayStr }}</span>
       <span>
-        <a href="javascript:;" role="button" @click="invExpansion">
-          {{ expansion ? '收起' : '展開' }}
-        </a>
+        <a href="javascript:;" role="button" @click="invExpansion">{{
+          expansion ? '收起' : '展開'
+        }}</a>
+      </span>
+      <span>
+        <a href="javascript:;" role="button" @click="forceUpdateWeekly"
+          >強制更新</a
+        >
       </span>
     </header>
     <table class="weekly-table">
@@ -101,6 +106,10 @@ export default {
   methods: {
     invExpansion() {
       this.expansion = !this.expansion;
+    },
+    forceUpdateWeekly() {
+      localStorage.setItem('DMHY-Bangumi-Index::weekly-bangumi-cache-t', 0);
+      location.assign('https://share.dmhy.org/');
     },
   },
 };
