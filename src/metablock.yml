@@ -8,11 +8,11 @@ namespace: https://github.com/FlandreDaisuki
 author: FlandreDaisuki
 match: https://share.dmhy.org/*
 require:
-  - https://unpkg.com/vue@2.6.10/dist/vue.js
-  - https://unpkg.com/vuex@3.1.1/dist/vuex.js
-  - https://unpkg.com/vue-router@3.0.7/dist/vue-router.js
-  - https://unpkg.com/js-yaml@3.13.1/dist/js-yaml.js
-  - https://unpkg.com/lz-string@1.4.4/libs/lz-string.js
+  - https://unpkg.com/vue@2.6.10/dist/vue.min.js
+  - https://unpkg.com/vuex@3.1.1/dist/vuex.min.js
+  - https://unpkg.com/vue-router@3.0.7/dist/vue-router.min.js
+  - https://unpkg.com/js-yaml@3.13.1/dist/js-yaml.min.js
+  - https://unpkg.com/lz-string@1.4.4/libs/lz-string.min.js
 resource:
   OLD_YAML: https://flandredaisuki.github.io/DMHY-Bangumi-Index/old.yaml
   NEW_YAML: https://flandredaisuki.github.io/DMHY-Bangumi-Index/new.yaml

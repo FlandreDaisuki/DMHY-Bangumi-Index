@@ -6,16 +6,16 @@
 // @namespace https://github.com/FlandreDaisuki
 // @author    FlandreDaisuki
 // @match     https://share.dmhy.org/*
-// @require   https://unpkg.com/vue@2.6.10/dist/vue.js
-// @require   https://unpkg.com/vuex@3.1.1/dist/vuex.js
-// @require   https://unpkg.com/vue-router@3.0.7/dist/vue-router.js
-// @require   https://unpkg.com/js-yaml@3.13.1/dist/js-yaml.js
-// @require   https://unpkg.com/lz-string@1.4.4/libs/lz-string.js
+// @require   https://unpkg.com/vue@2.6.10/dist/vue.min.js
+// @require   https://unpkg.com/vuex@3.1.1/dist/vuex.min.js
+// @require   https://unpkg.com/vue-router@3.0.7/dist/vue-router.min.js
+// @require   https://unpkg.com/js-yaml@3.13.1/dist/js-yaml.min.js
+// @require   https://unpkg.com/lz-string@1.4.4/libs/lz-string.min.js
 // @resource  OLD_YAML https://flandredaisuki.github.io/DMHY-Bangumi-Index/old.yaml
 // @resource  NEW_YAML https://flandredaisuki.github.io/DMHY-Bangumi-Index/new.yaml
 // @license   MIT
 // @noframes
-// @version   1.0.0
+// @version   1.0.1
 // @grant     GM_getResourceText
 // ==/UserScript==
 
@@ -185,42 +185,17 @@
   const __vue_script__ = script;
 
   /* template */
-  var __vue_render__ = function() {
-    var _vm = this;
-    var _h = _vm.$createElement;
-    var _c = _vm._self._c || _h;
-    return _c(
-      "div",
-      { attrs: { id: "🌐" } },
-      [
-        _c(
-          "nav",
-          [
-            _c("router-link", { attrs: { to: "/weekly" } }, [_vm._v("新番索引")]),
-            _vm._v(" "),
-            _c("router-link", { attrs: { to: "/favorite" } }, [
-              _vm._v("書籤索引")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("router-view", { staticClass: "page-view" })
-      ],
-      1
-    )
-  };
+  var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"🌐"}},[_c('nav',[_c('router-link',{attrs:{"to":"/weekly"}},[_vm._v("新番索引")]),_vm._v(" "),_c('router-link',{attrs:{"to":"/favorite"}},[_vm._v("書籤索引")])],1),_vm._v(" "),_c('router-view',{staticClass:"page-view"})],1)};
   var __vue_staticRenderFns__ = [];
-  __vue_render__._withStripped = true;
 
     /* style */
     const __vue_inject_styles__ = function (inject) {
       if (!inject) return
-      inject("data-v-07b1eca8_0", { source: "\n#🌐[data-v-07b1eca8] {\n  margin-top: 20px;\n  font-size: 14px;\n}\na[data-v-07b1eca8] {\n  color: black;\n  text-decoration: none;\n}\nnav > a[data-v-07b1eca8] {\n  display: inline-block;\n  padding: 3px 15px;\n  background: #fff;\n  cursor: pointer;\n  border-top: 1px solid #247;\n  border-left: 1px solid #247;\n  border-right: 1px solid #247;\n  border-radius: 5px 5px 0 0;\n}\nnav > a.router-link-exact-active[data-v-07b1eca8] {\n  border-top: 3px solid dodgerblue;\n}\n.page-view[data-v-07b1eca8] {\n  border: 1px solid #247;\n}\n", map: {"version":3,"sources":["/home/flandre/dev/DMHY-Bangumi-Index/src/components/Main.vue"],"names":[],"mappings":";AAeA;EACA,gBAAA;EACA,eAAA;AACA;AACA;EACA,YAAA;EACA,qBAAA;AACA;AACA;EACA,qBAAA;EACA,iBAAA;EACA,gBAAA;EACA,eAAA;EACA,0BAAA;EACA,2BAAA;EACA,4BAAA;EACA,0BAAA;AACA;AACA;EACA,gCAAA;AACA;AACA;EACA,sBAAA;AACA","file":"Main.vue","sourcesContent":["<template>\n  <div id=\"🌐\">\n    <nav>\n      <router-link to=\"/weekly\">新番索引</router-link>\n      <router-link to=\"/favorite\">書籤索引</router-link>\n    </nav>\n    <router-view class=\"page-view\"></router-view>\n  </div>\n</template>\n\n<script>\nexport default {};\n</script>\n\n<style scoped>\n#🌐 {\n  margin-top: 20px;\n  font-size: 14px;\n}\na {\n  color: black;\n  text-decoration: none;\n}\nnav > a {\n  display: inline-block;\n  padding: 3px 15px;\n  background: #fff;\n  cursor: pointer;\n  border-top: 1px solid #247;\n  border-left: 1px solid #247;\n  border-right: 1px solid #247;\n  border-radius: 5px 5px 0 0;\n}\nnav > a.router-link-exact-active {\n  border-top: 3px solid dodgerblue;\n}\n.page-view {\n  border: 1px solid #247;\n}\n</style>\n"]}, media: undefined });
+      inject("data-v-6d304cfc_0", { source: "#🌐[data-v-6d304cfc]{margin-top:20px;font-size:14px}a[data-v-6d304cfc]{color:#000;text-decoration:none}nav>a[data-v-6d304cfc]{display:inline-block;padding:3px 15px;background:#fff;cursor:pointer;border-top:1px solid #247;border-left:1px solid #247;border-right:1px solid #247;border-radius:5px 5px 0 0}nav>a.router-link-exact-active[data-v-6d304cfc]{border-top:3px solid #1e90ff}.page-view[data-v-6d304cfc]{border:1px solid #247}", map: undefined, media: undefined });
 
     };
     /* scoped */
-    const __vue_scope_id__ = "data-v-07b1eca8";
+    const __vue_scope_id__ = "data-v-6d304cfc";
     /* module identifier */
     const __vue_module_identifier__ = undefined;
     /* functional template */
@@ -337,107 +312,17 @@
   const __vue_script__$1 = script$1;
 
   /* template */
-  var __vue_render__$1 = function() {
-    var _vm = this;
-    var _h = _vm.$createElement;
-    var _c = _vm._self._c || _h;
-    return _c("div", [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "favorite-area" }, [
-        _c(
-          "div",
-          { staticClass: "favorite-pool" },
-          _vm._l(_vm.favoriteBangumiList, function(bangumi) {
-            return _c(
-              "a",
-              {
-                key: bangumi.title,
-                staticClass: "bangumi",
-                attrs: {
-                  href: _vm._f("keywordLink")(bangumi.keyword),
-                  role: "button"
-                }
-              },
-              [_vm._v(_vm._s(bangumi.title))]
-            )
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-area" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.userInputStr,
-                expression: "userInputStr"
-              }
-            ],
-            ref: "userTitleInput",
-            staticClass: "user-title-input",
-            attrs: { type: "text", placeholder: "為目前網址取名" },
-            domProps: { value: _vm.userInputStr },
-            on: {
-              input: [
-                function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.userInputStr = $event.target.value;
-                },
-                function($event) {
-                  return _vm.setValidity("")
-                }
-              ],
-              focus: function($event) {
-                return _vm.setValidity("")
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "tooltip" }, [
-            _vm._v(_vm._s(_vm.validityMsg))
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "add-btn", on: { click: _vm.addFavorite } },
-            [_vm._v("加入")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "del-btn", on: { click: _vm.delFavorite } },
-            [_vm._v("刪除")]
-          )
-        ])
-      ])
-    ])
-  };
-  var __vue_staticRenderFns__$1 = [
-    function() {
-      var _vm = this;
-      var _h = _vm.$createElement;
-      var _c = _vm._self._c || _h;
-      return _c("header", [
-        _c("span", [_vm._v("書籤索引")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("將當前的搜索加入書籤，並自訂名稱")])
-      ])
-    }
-  ];
-  __vue_render__$1._withStripped = true;
+  var __vue_render__$1 = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"favorite-area"},[_c('div',{staticClass:"favorite-pool"},_vm._l((_vm.favoriteBangumiList),function(bangumi){return _c('a',{key:bangumi.title,staticClass:"bangumi",attrs:{"href":_vm._f("keywordLink")(bangumi.keyword),"role":"button"}},[_vm._v(_vm._s(bangumi.title))])}),0),_vm._v(" "),_c('div',{staticClass:"input-area"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.userInputStr),expression:"userInputStr"}],ref:"userTitleInput",staticClass:"user-title-input",attrs:{"type":"text","placeholder":"為目前網址取名"},domProps:{"value":(_vm.userInputStr)},on:{"input":[function($event){if($event.target.composing){ return; }_vm.userInputStr=$event.target.value;},function($event){return _vm.setValidity('')}],"focus":function($event){return _vm.setValidity('')}}}),_vm._v(" "),_c('span',{staticClass:"tooltip"},[_vm._v(_vm._s(_vm.validityMsg))]),_vm._v(" "),_c('button',{staticClass:"add-btn",on:{"click":_vm.addFavorite}},[_vm._v("加入")]),_vm._v(" "),_c('button',{staticClass:"del-btn",on:{"click":_vm.delFavorite}},[_vm._v("刪除")])])])])};
+  var __vue_staticRenderFns__$1 = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('header',[_c('span',[_vm._v("書籤索引")]),_vm._v(" "),_c('span',[_vm._v("將當前的搜索加入書籤，並自訂名稱")])])}];
 
     /* style */
     const __vue_inject_styles__$1 = function (inject) {
       if (!inject) return
-      inject("data-v-7ac4a43b_0", { source: "\na[data-v-7ac4a43b] {\n  color: #247;\n  text-decoration: none;\n}\nheader[data-v-7ac4a43b] {\n  color: #fff;\n  background-color: #247;\n  padding: 5px;\n  display: flex;\n  font-size: 0.8rem;\n}\nheader > span[data-v-7ac4a43b]:nth-of-type(n + 2)::before {\n  content: '::';\n  padding: 0 8px;\n}\nheader > span > a[data-v-7ac4a43b] {\n  color: #fff;\n}\n.favorite-area[data-v-7ac4a43b] {\n  background-color: #fff;\n}\n.favorite-pool[data-v-7ac4a43b] {\n  padding: 10px;\n  min-height: 14px;\n}\n.bangumi[data-v-7ac4a43b] {\n  border: 1px solid #ffa500;\n  padding: 2px;\n  margin: 1px 3px;\n}\n.input-area[data-v-7ac4a43b] {\n  display: flex;\n  justify-content: center;\n  padding: 4px;\n  border-top: 1px dotted #247;\n}\n.input-area > *[data-v-7ac4a43b] {\n  margin: 0 15px;\n}\n.input-area > .user-title-input[data-v-7ac4a43b] {\n  border: 1px solid #247;\n  padding: 0 7px;\n  border-radius: 5px;\n  font-size: 14px;\n}\n.tooltip[data-v-7ac4a43b] {\n  position: absolute;\n  background-color: #000;\n  color: white;\n  padding: 5px 10px;\n  border-radius: 5px;\n  transform-origin: bottom center;\n  transform: translateY(-35px);\n  display: none;\n}\n.tooltip[data-v-7ac4a43b]::after {\n  content: '';\n  width: 0;\n  height: 0;\n  border-left: 5px solid transparent;\n  border-right: 5px solid transparent;\n  border-top: 5px solid black;\n  position: absolute;\n  top: 100%;\n  right: 20%;\n}\n.user-title-input:invalid + .tooltip[data-v-7ac4a43b] {\n  display: block;\n}\n.input-area > button[data-v-7ac4a43b] {\n  border: none;\n  border-radius: 5px;\n  padding: 5px 21px;\n  font-size: 14px;\n}\n.input-area > button.add-btn[data-v-7ac4a43b] {\n  background-color: lightgreen;\n}\n.input-area > button.del-btn[data-v-7ac4a43b] {\n  background-color: crimson;\n  color: white;\n}\n", map: {"version":3,"sources":["/home/flandre/dev/DMHY-Bangumi-Index/src/components/PageFavorite.vue"],"names":[],"mappings":";AA+FA;EACA,WAAA;EACA,qBAAA;AACA;AACA;EACA,WAAA;EACA,sBAAA;EACA,YAAA;EACA,aAAA;EACA,iBAAA;AACA;AACA;EACA,aAAA;EACA,cAAA;AACA;AACA;EACA,WAAA;AACA;AACA;EACA,sBAAA;AACA;AACA;EACA,aAAA;EACA,gBAAA;AACA;AACA;EACA,yBAAA;EACA,YAAA;EACA,eAAA;AACA;AACA;EACA,aAAA;EACA,uBAAA;EACA,YAAA;EACA,2BAAA;AACA;AACA;EACA,cAAA;AACA;AACA;EACA,sBAAA;EACA,cAAA;EACA,kBAAA;EACA,eAAA;AACA;AACA;EACA,kBAAA;EACA,sBAAA;EACA,YAAA;EACA,iBAAA;EACA,kBAAA;EACA,+BAAA;EACA,4BAAA;EACA,aAAA;AACA;AACA;EACA,WAAA;EACA,QAAA;EACA,SAAA;EACA,kCAAA;EACA,mCAAA;EACA,2BAAA;EACA,kBAAA;EACA,SAAA;EACA,UAAA;AACA;AACA;EACA,cAAA;AACA;AACA;EACA,YAAA;EACA,kBAAA;EACA,iBAAA;EACA,eAAA;AACA;AACA;EACA,4BAAA;AACA;AACA;EACA,yBAAA;EACA,YAAA;AACA","file":"PageFavorite.vue","sourcesContent":["<template>\n  <div>\n    <header>\n      <span>書籤索引</span>\n      <span>將當前的搜索加入書籤，並自訂名稱</span>\n    </header>\n    <div class=\"favorite-area\">\n      <div class=\"favorite-pool\">\n        <a\n          v-for=\"bangumi in favoriteBangumiList\"\n          :key=\"bangumi.title\"\n          :href=\"bangumi.keyword | keywordLink\"\n          role=\"button\"\n          class=\"bangumi\"\n          >{{ bangumi.title }}</a\n        >\n      </div>\n      <div class=\"input-area\">\n        <input\n          ref=\"userTitleInput\"\n          v-model=\"userInputStr\"\n          type=\"text\"\n          class=\"user-title-input\"\n          placeholder=\"為目前網址取名\"\n          @input=\"setValidity('')\"\n          @focus=\"setValidity('')\"\n        />\n        <span class=\"tooltip\">{{ validityMsg }}</span>\n        <button class=\"add-btn\" @click=\"addFavorite\">加入</button>\n        <button class=\"del-btn\" @click=\"delFavorite\">刪除</button>\n      </div>\n    </div>\n  </div>\n</template>\n<script>\nexport default {\n  filters: {\n    keywordLink(keyword) {\n      return `/topics/list?keyword=${keyword}`;\n    },\n  },\n  data() {\n    return {\n      userInputStr: '',\n      validityMsg: '',\n    };\n  },\n  computed: {\n    favoriteBangumiList() {\n      return this.$store.state.favoriteBangumiList;\n    },\n    utitle() {\n      return this.userInputStr.trim();\n    },\n  },\n  methods: {\n    setValidity(msg) {\n      this.validityMsg = msg;\n      this.$refs.userTitleInput.setCustomValidity(this.validityMsg);\n    },\n    addFavorite() {\n      if (!this.utitle) {\n        this.setValidity('名稱欄為空');\n        return;\n      }\n      const found = this.favoriteBangumiList.find(b => b.title === this.utitle);\n      if (found) {\n        this.setValidity('書籤名稱已存在');\n        return;\n      }\n\n      const keyword = new URL(location).searchParams.get('keyword');\n      this.$store.dispatch('appendFavoriteBangumi', {\n        title: this.utitle,\n        keyword,\n      });\n    },\n    delFavorite() {\n      if (!this.utitle) {\n        this.setValidity('名稱欄為空');\n        return;\n      }\n      const found = this.favoriteBangumiList.find(b => b.title === this.utitle);\n      if (!found) {\n        this.setValidity('書籤名稱不存在');\n        return;\n      }\n\n      this.$store.dispatch('removeFavoriteBangumi', this.utitle);\n    },\n  },\n};\n</script>\n\n<style scoped>\na {\n  color: #247;\n  text-decoration: none;\n}\nheader {\n  color: #fff;\n  background-color: #247;\n  padding: 5px;\n  display: flex;\n  font-size: 0.8rem;\n}\nheader > span:nth-of-type(n + 2)::before {\n  content: '::';\n  padding: 0 8px;\n}\nheader > span > a {\n  color: #fff;\n}\n.favorite-area {\n  background-color: #fff;\n}\n.favorite-pool {\n  padding: 10px;\n  min-height: 14px;\n}\n.bangumi {\n  border: 1px solid #ffa500;\n  padding: 2px;\n  margin: 1px 3px;\n}\n.input-area {\n  display: flex;\n  justify-content: center;\n  padding: 4px;\n  border-top: 1px dotted #247;\n}\n.input-area > * {\n  margin: 0 15px;\n}\n.input-area > .user-title-input {\n  border: 1px solid #247;\n  padding: 0 7px;\n  border-radius: 5px;\n  font-size: 14px;\n}\n.tooltip {\n  position: absolute;\n  background-color: #000;\n  color: white;\n  padding: 5px 10px;\n  border-radius: 5px;\n  transform-origin: bottom center;\n  transform: translateY(-35px);\n  display: none;\n}\n.tooltip::after {\n  content: '';\n  width: 0;\n  height: 0;\n  border-left: 5px solid transparent;\n  border-right: 5px solid transparent;\n  border-top: 5px solid black;\n  position: absolute;\n  top: 100%;\n  right: 20%;\n}\n.user-title-input:invalid + .tooltip {\n  display: block;\n}\n.input-area > button {\n  border: none;\n  border-radius: 5px;\n  padding: 5px 21px;\n  font-size: 14px;\n}\n.input-area > button.add-btn {\n  background-color: lightgreen;\n}\n.input-area > button.del-btn {\n  background-color: crimson;\n  color: white;\n}\n</style>\n"]}, media: undefined });
+      inject("data-v-27ecab8b_0", { source: "a[data-v-27ecab8b]{color:#247;text-decoration:none}header[data-v-27ecab8b]{color:#fff;background-color:#247;padding:5px;display:flex;font-size:.8rem}header>span[data-v-27ecab8b]:nth-of-type(n+2)::before{content:'::';padding:0 8px}header>span>a[data-v-27ecab8b]{color:#fff}.favorite-area[data-v-27ecab8b]{background-color:#fff}.favorite-pool[data-v-27ecab8b]{padding:10px;min-height:14px}.bangumi[data-v-27ecab8b]{border:1px solid orange;padding:2px;margin:1px 3px}.input-area[data-v-27ecab8b]{display:flex;justify-content:center;padding:4px;border-top:1px dotted #247}.input-area>*[data-v-27ecab8b]{margin:0 15px}.input-area>.user-title-input[data-v-27ecab8b]{border:1px solid #247;padding:0 7px;border-radius:5px;font-size:14px}.tooltip[data-v-27ecab8b]{position:absolute;background-color:#000;color:#fff;padding:5px 10px;border-radius:5px;transform-origin:bottom center;transform:translateY(-35px);display:none}.tooltip[data-v-27ecab8b]::after{content:'';width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid #000;position:absolute;top:100%;right:20%}.user-title-input:invalid+.tooltip[data-v-27ecab8b]{display:block}.input-area>button[data-v-27ecab8b]{border:none;border-radius:5px;padding:5px 21px;font-size:14px}.input-area>button.add-btn[data-v-27ecab8b]{background-color:#90ee90}.input-area>button.del-btn[data-v-27ecab8b]{background-color:#dc143c;color:#fff}", map: undefined, media: undefined });
 
     };
     /* scoped */
-    const __vue_scope_id__$1 = "data-v-7ac4a43b";
+    const __vue_scope_id__$1 = "data-v-27ecab8b";
     /* module identifier */
     const __vue_module_identifier__$1 = undefined;
     /* functional template */
@@ -568,94 +453,20 @@
   const __vue_script__$2 = script$2;
 
   /* template */
-  var __vue_render__$2 = function() {
-    var _vm = this;
-    var _h = _vm.$createElement;
-    var _c = _vm._self._c || _h;
-    return _c("div", [
-      _c("header", [
-        _c("span", [_vm._v("新番資源索引")]),
-        _vm._v(" "),
-        _c("span", [_vm._v(_vm._s(_vm.todayStr))]),
-        _vm._v(" "),
-        _c("span", [
-          _c(
-            "a",
-            {
-              attrs: { href: "javascript:;", role: "button" },
-              on: { click: _vm.invExpansion }
-            },
-            [
-              _vm._v(
-                "\n        " +
-                  _vm._s(_vm.expansion ? "收起" : "展開") +
-                  "\n      "
-              )
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "table",
-        { staticClass: "weekly-table" },
-        _vm._l(_vm.orderedWeeklyBangumi, function(ref, index) {
-          var weekday = ref[0];
-          var dayBangumiList = ref[1];
-          return _c(
-            "tr",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.expansion ? true : index < 4,
-                  expression: "expansion ? true : index < 4"
-                }
-              ],
-              key: weekday,
-              staticClass: "weekly-tr",
-              class: { "weekly-tr-today": index === 2 }
-            },
-            [
-              _c("td", { staticClass: "weekly-weekday-str" }, [
-                _vm._v(_vm._s(_vm._f("longerWeekdayStr")(weekday)))
-              ]),
-              _vm._v(" "),
-              _c(
-                "td",
-                _vm._l(dayBangumiList, function(bangumi) {
-                  return _c(
-                    "a",
-                    {
-                      key: bangumi.title,
-                      staticClass: "bangumi",
-                      class: { "bangumi-old": bangumi.newold === "old" },
-                      attrs: { href: _vm._f("keywordLink")(bangumi.keyword) }
-                    },
-                    [_vm._v(_vm._s(bangumi.title))]
-                  )
-                }),
-                0
-              )
-            ]
-          )
-        }),
-        0
-      )
-    ])
-  };
+  var __vue_render__$2 = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('header',[_c('span',[_vm._v("新番資源索引")]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.todayStr))]),_vm._v(" "),_c('span',[_c('a',{attrs:{"href":"javascript:;","role":"button"},on:{"click":_vm.invExpansion}},[_vm._v("\n        "+_vm._s(_vm.expansion ? '收起' : '展開')+"\n      ")])])]),_vm._v(" "),_c('table',{staticClass:"weekly-table"},_vm._l((_vm.orderedWeeklyBangumi),function(ref,index){
+  var weekday = ref[0];
+  var dayBangumiList = ref[1];
+  return _c('tr',{directives:[{name:"show",rawName:"v-show",value:(_vm.expansion ? true : index < 4),expression:"expansion ? true : index < 4"}],key:weekday,staticClass:"weekly-tr",class:{ 'weekly-tr-today': index === 2 }},[_c('td',{staticClass:"weekly-weekday-str"},[_vm._v(_vm._s(_vm._f("longerWeekdayStr")(weekday)))]),_vm._v(" "),_c('td',_vm._l((dayBangumiList),function(bangumi){return _c('a',{key:bangumi.title,staticClass:"bangumi",class:{ 'bangumi-old': bangumi.newold === 'old' },attrs:{"href":_vm._f("keywordLink")(bangumi.keyword)}},[_vm._v(_vm._s(bangumi.title))])}),0)])}),0)])};
   var __vue_staticRenderFns__$2 = [];
-  __vue_render__$2._withStripped = true;
 
     /* style */
     const __vue_inject_styles__$2 = function (inject) {
       if (!inject) return
-      inject("data-v-2b324272_0", { source: "\na[data-v-2b324272] {\n  color: #247;\n  text-decoration: none;\n}\nheader[data-v-2b324272] {\n  color: #fff;\n  background-color: #247;\n  padding: 5px;\n  display: flex;\n  font-size: 0.8rem;\n}\nheader > span[data-v-2b324272]:nth-of-type(n + 2)::before {\n  content: '::';\n  padding: 0 8px;\n}\nheader > span > a[data-v-2b324272] {\n  color: #fff;\n}\n.weekly-table[data-v-2b324272] {\n  border-collapse: collapse;\n  width: 100%;\n}\n.weekly-tr[data-v-2b324272] {\n  display: flex;\n  align-items: center;\n  border: 2px solid white;\n  background: white;\n}\n.weekly-tr.weekly-tr-today[data-v-2b324272] {\n  background-color: #ff9;\n}\n.weekly-weekday-str[data-v-2b324272] {\n  padding: 3px 15px;\n  margin-right: 3px;\n  background-color: #7e99be;\n  color: white;\n  font-weight: bolder;\n}\n.bangumi[data-v-2b324272] {\n  border: 1px solid #ffa500;\n  padding: 2px;\n  margin: 1px 3px;\n}\n.bangumi-old[data-v-2b324272] {\n  border: 1px solid #002fff;\n}\n", map: {"version":3,"sources":["/home/flandre/dev/DMHY-Bangumi-Index/src/components/PageWeekly.vue"],"names":[],"mappings":";AA6GA;EACA,WAAA;EACA,qBAAA;AACA;AACA;EACA,WAAA;EACA,sBAAA;EACA,YAAA;EACA,aAAA;EACA,iBAAA;AACA;AACA;EACA,aAAA;EACA,cAAA;AACA;AACA;EACA,WAAA;AACA;AACA;EACA,yBAAA;EACA,WAAA;AACA;AACA;EACA,aAAA;EACA,mBAAA;EACA,uBAAA;EACA,iBAAA;AACA;AACA;EACA,sBAAA;AACA;AACA;EACA,iBAAA;EACA,iBAAA;EACA,yBAAA;EACA,YAAA;EACA,mBAAA;AACA;AACA;EACA,yBAAA;EACA,YAAA;EACA,eAAA;AACA;AACA;EACA,yBAAA;AACA","file":"PageWeekly.vue","sourcesContent":["<template>\n  <div>\n    <header>\n      <span>新番資源索引</span>\n      <span>{{ todayStr }}</span>\n      <span>\n        <a href=\"javascript:;\" role=\"button\" @click=\"invExpansion\">\n          {{ expansion ? '收起' : '展開' }}\n        </a>\n      </span>\n    </header>\n    <table class=\"weekly-table\">\n      <tr\n        v-for=\"([weekday, dayBangumiList], index) in orderedWeeklyBangumi\"\n        v-show=\"expansion ? true : index < 4\"\n        :key=\"weekday\"\n        class=\"weekly-tr\"\n        :class=\"{ 'weekly-tr-today': index === 2 }\"\n      >\n        <td class=\"weekly-weekday-str\">{{ weekday | longerWeekdayStr }}</td>\n        <td>\n          <a\n            v-for=\"bangumi in dayBangumiList\"\n            :key=\"bangumi.title\"\n            class=\"bangumi\"\n            :href=\"bangumi.keyword | keywordLink\"\n            :class=\"{ 'bangumi-old': bangumi.newold === 'old' }\"\n            >{{ bangumi.title }}</a\n          >\n        </td>\n      </tr>\n    </table>\n  </div>\n</template>\n\n<script>\nexport default {\n  filters: {\n    keywordLink(keyword) {\n      return `/topics/list?keyword=${keyword}`;\n    },\n    longerWeekdayStr(weekdayStr) {\n      switch (weekdayStr) {\n        case '日':\n          return '星期日（日）';\n        case '一':\n          return '星期一（月）';\n        case '二':\n          return '星期二（火）';\n        case '三':\n          return '星期三（水）';\n        case '四':\n          return '星期四（木）';\n        case '五':\n          return '星期五（金）';\n        case '六':\n          return '星期六（土）';\n      }\n    },\n  },\n  data() {\n    const now = Date.now();\n    return {\n      now,\n      date: new Date(now),\n      todayWeekday: new Date(now).getDay(),\n      expansion: false,\n    };\n  },\n  computed: {\n    todayStr() {\n      const longWeekdayStr = new Intl.DateTimeFormat('zh', {\n        weekday: 'long',\n      }).format(this.date);\n\n      const dateStr = new Intl.DateTimeFormat('zh', {\n        day: 'numeric',\n        month: 'long',\n        year: 'numeric',\n      }).format(this.date);\n\n      return `西元 ${dateStr} ${longWeekdayStr}`;\n    },\n    orderedWeeklyBangumi() {\n      const WEEKDAY_STR = this.$store.state.const.WEEKDAY_STR;\n      const TODAY_SENSITIVE_WEEKDAY_STR = WEEKDAY_STR.repeat(3).slice(\n        this.todayWeekday + 5,\n        this.todayWeekday + 12,\n      );\n\n      const weeklyBangumi = this.$store.state.weeklyBangumi;\n      const keyedWeeklyBangumi = [...TODAY_SENSITIVE_WEEKDAY_STR].reduce(\n        (collection, weekdayStr) => {\n          return collection.set(weekdayStr, weeklyBangumi[weekdayStr]);\n        },\n        new Map(),\n      );\n      return [...keyedWeeklyBangumi.entries()];\n    },\n  },\n  methods: {\n    invExpansion() {\n      this.expansion = !this.expansion;\n    },\n  },\n};\n</script>\n\n<style scoped>\na {\n  color: #247;\n  text-decoration: none;\n}\nheader {\n  color: #fff;\n  background-color: #247;\n  padding: 5px;\n  display: flex;\n  font-size: 0.8rem;\n}\nheader > span:nth-of-type(n + 2)::before {\n  content: '::';\n  padding: 0 8px;\n}\nheader > span > a {\n  color: #fff;\n}\n.weekly-table {\n  border-collapse: collapse;\n  width: 100%;\n}\n.weekly-tr {\n  display: flex;\n  align-items: center;\n  border: 2px solid white;\n  background: white;\n}\n.weekly-tr.weekly-tr-today {\n  background-color: #ff9;\n}\n.weekly-weekday-str {\n  padding: 3px 15px;\n  margin-right: 3px;\n  background-color: #7e99be;\n  color: white;\n  font-weight: bolder;\n}\n.bangumi {\n  border: 1px solid #ffa500;\n  padding: 2px;\n  margin: 1px 3px;\n}\n.bangumi-old {\n  border: 1px solid #002fff;\n}\n</style>\n"]}, media: undefined });
+      inject("data-v-abff4512_0", { source: "a[data-v-abff4512]{color:#247;text-decoration:none}header[data-v-abff4512]{color:#fff;background-color:#247;padding:5px;display:flex;font-size:.8rem}header>span[data-v-abff4512]:nth-of-type(n+2)::before{content:'::';padding:0 8px}header>span>a[data-v-abff4512]{color:#fff}.weekly-table[data-v-abff4512]{border-collapse:collapse;width:100%}.weekly-tr[data-v-abff4512]{display:flex;align-items:center;border:2px solid #fff;background:#fff}.weekly-tr.weekly-tr-today[data-v-abff4512]{background-color:#ff9}.weekly-weekday-str[data-v-abff4512]{padding:3px 15px;margin-right:3px;background-color:#7e99be;color:#fff;font-weight:bolder}.bangumi[data-v-abff4512]{border:1px solid orange;padding:2px;margin:1px 3px}.bangumi-old[data-v-abff4512]{border:1px solid #002fff}", map: undefined, media: undefined });
 
     };
     /* scoped */
-    const __vue_scope_id__$2 = "data-v-2b324272";
+    const __vue_scope_id__$2 = "data-v-abff4512";
     /* module identifier */
     const __vue_module_identifier__$2 = undefined;
     /* functional template */
