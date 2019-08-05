@@ -1,0 +1,22 @@
+name:
+  default: DMHY Bangumi Index
+  zh-TW: 動漫花園新番索引
+description:
+  default: Let DMHY header index back!
+  zh-TW: 把動漫花園上方的索引弄回來
+namespace: https://github.com/FlandreDaisuki
+author: FlandreDaisuki
+match: https://share.dmhy.org/*
+require:
+  - https://unpkg.com/vue@2.6.10/dist/vue.js
+  - https://unpkg.com/vuex@3.1.1/dist/vuex.js
+  - https://unpkg.com/vue-router@3.0.7/dist/vue-router.js
+  - https://unpkg.com/js-yaml@3.13.1/dist/js-yaml.js
+  - https://unpkg.com/lz-string@1.4.4/libs/lz-string.js
+resource:
+  OLD_YAML: https://flandredaisuki.github.io/DMHY-Bangumi-Index/old.yaml
+  NEW_YAML: https://flandredaisuki.github.io/DMHY-Bangumi-Index/new.yaml
+grant:
+  - GM_getResourceText
+license: MIT
+noframes: true
