@@ -15,7 +15,7 @@
 // @connect   flandredaisuki.github.io
 // @license   MIT
 // @noframes
-// @version   1.1.0
+// @version   1.1.1
 // @grant     GM_xmlhttpRequest
 // @grant     unsafeWindow
 // ==/UserScript==
@@ -37,8 +37,8 @@
    * wb := weeklyBangumi
    * {
    *   日: [
-   *     {title, keyword, newold},
-   *     {title, keyword, newold},...
+   *     {title, keyword, isnew},
+   *     {title, keyword, isnew},...
    *   ],
    *   一: [],
    *   ...
@@ -46,13 +46,13 @@
    * → xwb := [...W].join('\0'); # ordered by WEEKDAY_STR #
    * → W := [...B].join('\1')
    * → B := [T, K, N].join('\2')
-   * → N := new: 1; old: 0;
+   * → N := true: 1; false: 0;
    */
   const compressedEncode = wb => {
     return [...WEEKDAY_STR]
       .map(w =>
         wb[w]
-          .map(b => [b.title, b.keyword, Number(b.newold === 'new')].join('\x02'))
+          .map(b => [b.title, b.keyword, Number(b.isnew)].join('\x02'))
           .join('\x01'),
       )
       .join('\x00');
@@ -64,11 +64,11 @@
       .map((xw, i) => {
         return {
           [WEEKDAY_STR[i]]: xw.split('\x01').map(b => {
-            const [title, keyword, newold] = b.split('\x02');
+            const [title, keyword, isnew] = b.split('\x02');
             return {
               title,
               keyword,
-              newold: Number(newold) ? 'new' : 'old',
+              isnew: isnew === '1',
             };
           }),
         };
@@ -167,7 +167,7 @@
     });
   };
 
-  const YAMLToWeeklyBangumiPayload = (data, newold) => {
+  const YAMLToWeeklyBangumiPayload = (data, isnew) => {
     const weeklyBangumiPayload = {};
 
     for (const weekdayStr of WEEKDAY_STR) {
@@ -176,7 +176,7 @@
         weeklyBangumiPayload[weekdayStr].push({
           title,
           keyword,
-          newold,
+          isnew,
         });
       }
     }
@@ -189,7 +189,7 @@
     );
 
     const data = jsyaml.safeLoad(txt);
-    return YAMLToWeeklyBangumiPayload(data, newold);
+    return YAMLToWeeklyBangumiPayload(data, newold === 'new');
   };
 
   // exports
@@ -581,17 +581,17 @@
   var __vue_render__$1 = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('header',[_c('span',[_vm._v("新番資源索引")]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.todayStr))]),_vm._v(" "),_c('span',[_c('a',{attrs:{"href":"javascript:;","role":"button"},on:{"click":_vm.invExpansion}},[_vm._v(_vm._s(_vm.expansion ? '收起' : '展開'))])]),_vm._v(" "),_c('span',[_c('a',{attrs:{"href":"javascript:;","role":"button"},on:{"click":_vm.forceUpdateWeekly}},[_vm._v("強制更新")])])]),_vm._v(" "),_c('table',{staticClass:"weekly-table"},_vm._l((_vm.orderedWeeklyBangumi),function(ref,index){
   var weekday = ref[0];
   var dayBangumiList = ref[1];
-  return _c('tr',{directives:[{name:"show",rawName:"v-show",value:(_vm.expansion ? true : index < 4),expression:"expansion ? true : index < 4"}],key:weekday,staticClass:"weekly-tr",class:{ 'weekly-tr-today': index === 2 }},[_c('td',{staticClass:"weekly-weekday-str"},[_vm._v(_vm._s(_vm._f("longerWeekdayStr")(weekday)))]),_vm._v(" "),_c('td',_vm._l((dayBangumiList),function(bangumi){return _c('a',{key:bangumi.title,staticClass:"bangumi",class:{ 'bangumi-old': bangumi.newold === 'old' },attrs:{"href":_vm._f("keywordLink")(bangumi.keyword)}},[_vm._v(_vm._s(bangumi.title))])}),0)])}),0)])};
+  return _c('tr',{directives:[{name:"show",rawName:"v-show",value:(_vm.expansion ? true : index < 4),expression:"expansion ? true : index < 4"}],key:weekday,staticClass:"weekly-tr",class:{ 'weekly-tr-today': index === 2 }},[_c('td',{staticClass:"weekly-weekday-str"},[_vm._v(_vm._s(_vm._f("longerWeekdayStr")(weekday)))]),_vm._v(" "),_c('td',_vm._l((dayBangumiList),function(bangumi){return _c('a',{key:bangumi.title,staticClass:"bangumi",class:{ 'bangumi-old': !bangumi.isnew },attrs:{"href":_vm._f("keywordLink")(bangumi.keyword)}},[_vm._v(_vm._s(bangumi.title))])}),0)])}),0)])};
   var __vue_staticRenderFns__$1 = [];
 
     /* style */
     const __vue_inject_styles__$1 = function (inject) {
       if (!inject) return
-      inject("data-v-e91db8ac_0", { source: "a[data-v-e91db8ac]{color:#247;text-decoration:none}header[data-v-e91db8ac]{color:#fff;background-color:#247;padding:5px;display:flex;font-size:.8rem}header>span[data-v-e91db8ac]:nth-of-type(n+2)::before{content:'::';padding:0 8px}header>span>a[data-v-e91db8ac]{color:#fff}.weekly-table[data-v-e91db8ac]{border-collapse:collapse;width:100%}.weekly-tr[data-v-e91db8ac]{display:flex;align-items:center;border:2px solid #fff;background:#fff}.weekly-tr.weekly-tr-today[data-v-e91db8ac]{background-color:#ff9}.weekly-weekday-str[data-v-e91db8ac]{padding:3px 15px;margin-right:3px;background-color:#7e99be;color:#fff;font-weight:bolder}.bangumi[data-v-e91db8ac]{border:1px solid orange;padding:2px;margin:1px 3px}.bangumi-old[data-v-e91db8ac]{border:1px solid #002fff}", map: undefined, media: undefined });
+      inject("data-v-9a5fba2c_0", { source: "a[data-v-9a5fba2c]{color:#247;text-decoration:none}header[data-v-9a5fba2c]{color:#fff;background-color:#247;padding:5px;display:flex;font-size:.8rem}header>span[data-v-9a5fba2c]:nth-of-type(n+2)::before{content:'::';padding:0 8px}header>span>a[data-v-9a5fba2c]{color:#fff}.weekly-table[data-v-9a5fba2c]{border-collapse:collapse;width:100%}.weekly-tr[data-v-9a5fba2c]{display:flex;align-items:center;border:2px solid #fff;background:#fff}.weekly-tr.weekly-tr-today[data-v-9a5fba2c]{background-color:#ff9}.weekly-weekday-str[data-v-9a5fba2c]{padding:3px 15px;margin-right:3px;background-color:#7e99be;color:#fff;font-weight:bolder}.bangumi[data-v-9a5fba2c]{border:1px solid orange;padding:2px;margin:1px 3px}.bangumi-old[data-v-9a5fba2c]{border:1px solid #002fff}", map: undefined, media: undefined });
 
     };
     /* scoped */
-    const __vue_scope_id__$1 = "data-v-e91db8ac";
+    const __vue_scope_id__$1 = "data-v-9a5fba2c";
     /* module identifier */
     const __vue_module_identifier__$1 = undefined;
     /* functional template */

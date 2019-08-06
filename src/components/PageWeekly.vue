@@ -29,7 +29,7 @@
             :key="bangumi.title"
             class="bangumi"
             :href="bangumi.keyword | keywordLink"
-            :class="{ 'bangumi-old': bangumi.newold === 'old' }"
+            :class="{ 'bangumi-old': !bangumi.isnew }"
             >{{ bangumi.title }}</a
           >
         </td>

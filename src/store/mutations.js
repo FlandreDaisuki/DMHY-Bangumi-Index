@@ -6,8 +6,8 @@ import { WEEKDAY_STR } from '../constants';
  * wb := weeklyBangumi
  * {
  *   日: [
- *     {title, keyword, newold},
- *     {title, keyword, newold},...
+ *     {title, keyword, isnew},
+ *     {title, keyword, isnew},...
  *   ],
  *   一: [],
  *   ...
@@ -15,13 +15,13 @@ import { WEEKDAY_STR } from '../constants';
  * → xwb := [...W].join('\0'); # ordered by WEEKDAY_STR #
  * → W := [...B].join('\1')
  * → B := [T, K, N].join('\2')
- * → N := new: 1; old: 0;
+ * → N := true: 1; false: 0;
  */
 const compressedEncode = wb => {
   return [...WEEKDAY_STR]
     .map(w =>
       wb[w]
-        .map(b => [b.title, b.keyword, Number(b.newold === 'new')].join('\x02'))
+        .map(b => [b.title, b.keyword, Number(b.isnew)].join('\x02'))
         .join('\x01'),
     )
     .join('\x00');
@@ -33,11 +33,11 @@ const compressedDecode = xwb => {
     .map((xw, i) => {
       return {
         [WEEKDAY_STR[i]]: xw.split('\x01').map(b => {
-          const [title, keyword, newold] = b.split('\x02');
+          const [title, keyword, isnew] = b.split('\x02');
           return {
             title,
             keyword,
-            newold: Number(newold) ? 'new' : 'old',
+            isnew: isnew === '1',
           };
         }),
       };

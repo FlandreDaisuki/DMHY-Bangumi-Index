@@ -26,7 +26,7 @@ const fetcher = async (url, options = {}) => {
   });
 };
 
-const YAMLToWeeklyBangumiPayload = (data, newold) => {
+const YAMLToWeeklyBangumiPayload = (data, isnew) => {
   const weeklyBangumiPayload = {};
 
   for (const weekdayStr of WEEKDAY_STR) {
@@ -35,7 +35,7 @@ const YAMLToWeeklyBangumiPayload = (data, newold) => {
       weeklyBangumiPayload[weekdayStr].push({
         title,
         keyword,
-        newold,
+        isnew,
       });
     }
   }
@@ -48,7 +48,7 @@ const downloadBangumi = async newold => {
   );
 
   const data = jsyaml.safeLoad(txt);
-  return YAMLToWeeklyBangumiPayload(data, newold);
+  return YAMLToWeeklyBangumiPayload(data, newold === 'new');
 };
 
 // exports

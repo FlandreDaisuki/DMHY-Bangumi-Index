@@ -12,6 +12,7 @@
         { "language": "javascript", "autoFix": true }
     ],
     "cSpell.ignoreWords": [
+        "isnew",
         "jsyaml",
         "newold"
     ],
