@@ -23,6 +23,9 @@ const routes = [
 const fetcher = async (url, options = {}) => {
   const defaultOptions = {
     method: 'GET',
+    headers: {
+      'Cache-Control': 'no-cache',
+    },
   };
   const opt = Object.assign({}, defaultOptions, options);
   return new Promise((resolve, reject) => {
