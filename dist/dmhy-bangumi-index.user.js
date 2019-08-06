@@ -517,7 +517,7 @@
         ...opt,
         url,
         onload: res => {
-          console.log(res);
+          // console.log(res);
           resolve(res.responseText);
         },
         onerror: err => {
