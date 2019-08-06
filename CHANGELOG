@@ -1,3 +1,7 @@
+1.0.4
+
+避免套用到其他頁面 (/announce, ...)
+
 1.0.3
 
 用 `GM_xmlhttpRequest` 取代 `GM_getResourceText` 避免腳本管理器快取造成強制更新無效

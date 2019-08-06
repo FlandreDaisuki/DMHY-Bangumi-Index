@@ -5,7 +5,8 @@
 // @description:zh-TW 把動漫花園上方的索引弄回來
 // @namespace https://github.com/FlandreDaisuki
 // @author    FlandreDaisuki
-// @match     https://share.dmhy.org/*
+// @match     https://share.dmhy.org/
+// @match     https://share.dmhy.org/topics/*
 // @require   https://unpkg.com/vue@2.6.10/dist/vue.min.js
 // @require   https://unpkg.com/vuex@3.1.1/dist/vuex.min.js
 // @require   https://unpkg.com/vue-router@3.0.7/dist/vue-router.min.js
@@ -14,7 +15,7 @@
 // @connect   flandredaisuki.github.io
 // @license   MIT
 // @noframes
-// @version   1.0.3
+// @version   1.0.4
 // @grant     GM_xmlhttpRequest
 // ==/UserScript==
 
