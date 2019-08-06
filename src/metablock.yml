@@ -13,10 +13,9 @@ require:
   - https://unpkg.com/vue-router@3.0.7/dist/vue-router.min.js
   - https://unpkg.com/js-yaml@3.13.1/dist/js-yaml.min.js
   - https://unpkg.com/lz-string@1.4.4/libs/lz-string.min.js
-resource:
-  OLD_YAML: https://flandredaisuki.github.io/DMHY-Bangumi-Index/old.yaml
-  NEW_YAML: https://flandredaisuki.github.io/DMHY-Bangumi-Index/new.yaml
+connect:
+  - flandredaisuki.github.io
 grant:
-  - GM_getResourceText
+  - GM_xmlhttpRequest
 license: MIT
 noframes: true

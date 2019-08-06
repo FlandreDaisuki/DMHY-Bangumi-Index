@@ -20,9 +20,31 @@ const routes = [
   { path: '/favorite', component: PageFavoriteComp },
 ];
 
-const YAMLtoPayloadList = newold => {
-  const name = newold.toUpperCase() + '_YAML';
-  const txt = GM_getResourceText(name);
+const fetcher = async (url, options = {}) => {
+  const defaultOptions = {
+    method: 'GET',
+  };
+  const opt = Object.assign({}, defaultOptions, options);
+  return new Promise((resolve, reject) => {
+    GM_xmlhttpRequest({
+      ...opt,
+      url,
+      onload: res => {
+        console.log(res);
+        resolve(res.responseText);
+      },
+      onerror: err => {
+        console.error(err);
+        reject(err);
+      },
+    });
+  });
+};
+
+const downloadBangumi = async newold => {
+  const txt = await fetcher(
+    `https://flandredaisuki.github.io/DMHY-Bangumi-Index/${newold}.yaml`,
+  );
 
   const data = jsyaml.safeLoad(txt);
   const payloadList = [];
@@ -106,11 +128,11 @@ const store = new Vuex.Store({
   },
   actions: {
     async downloadWeeklyBangumi({ commit }) {
-      const oldPayloadList = YAMLtoPayloadList('old');
+      const oldPayloadList = await downloadBangumi('old');
       for (const payload of oldPayloadList) {
         commit('appendWeeklyBangumi', payload);
       }
-      const newPayloadList = YAMLtoPayloadList('new');
+      const newPayloadList = await downloadBangumi('new');
       for (const payload of newPayloadList) {
         commit('appendWeeklyBangumi', payload);
       }

@@ -11,12 +11,11 @@
 // @require   https://unpkg.com/vue-router@3.0.7/dist/vue-router.min.js
 // @require   https://unpkg.com/js-yaml@3.13.1/dist/js-yaml.min.js
 // @require   https://unpkg.com/lz-string@1.4.4/libs/lz-string.min.js
-// @resource  OLD_YAML https://flandredaisuki.github.io/DMHY-Bangumi-Index/old.yaml
-// @resource  NEW_YAML https://flandredaisuki.github.io/DMHY-Bangumi-Index/new.yaml
+// @connect   flandredaisuki.github.io
 // @license   MIT
 // @noframes
-// @version   1.0.2
-// @grant     GM_getResourceText
+// @version   1.0.3
+// @grant     GM_xmlhttpRequest
 // ==/UserScript==
 
 (function (Vue, Vuex, VueRouter, jsyaml, LZString) {
@@ -507,9 +506,31 @@
     { path: '/favorite', component: PageFavoriteComp },
   ];
 
-  const YAMLtoPayloadList = newold => {
-    const name = newold.toUpperCase() + '_YAML';
-    const txt = GM_getResourceText(name);
+  const fetcher = async (url, options = {}) => {
+    const defaultOptions = {
+      method: 'GET',
+    };
+    const opt = Object.assign({}, defaultOptions, options);
+    return new Promise((resolve, reject) => {
+      GM_xmlhttpRequest({
+        ...opt,
+        url,
+        onload: res => {
+          console.log(res);
+          resolve(res.responseText);
+        },
+        onerror: err => {
+          console.error(err);
+          reject(err);
+        },
+      });
+    });
+  };
+
+  const downloadBangumi = async newold => {
+    const txt = await fetcher(
+      `https://flandredaisuki.github.io/DMHY-Bangumi-Index/${newold}.yaml`,
+    );
 
     const data = jsyaml.safeLoad(txt);
     const payloadList = [];
@@ -593,11 +614,11 @@
     },
     actions: {
       async downloadWeeklyBangumi({ commit }) {
-        const oldPayloadList = YAMLtoPayloadList('old');
+        const oldPayloadList = await downloadBangumi('old');
         for (const payload of oldPayloadList) {
           commit('appendWeeklyBangumi', payload);
         }
-        const newPayloadList = YAMLtoPayloadList('new');
+        const newPayloadList = await downloadBangumi('new');
         for (const payload of newPayloadList) {
           commit('appendWeeklyBangumi', payload);
         }

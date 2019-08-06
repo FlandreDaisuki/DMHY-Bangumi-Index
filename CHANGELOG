@@ -1,3 +1,7 @@
+1.0.3
+
+用 `GM_xmlhttpRequest` 取代 `GM_getResourceText` 避免腳本管理器快取造成強制更新無效
+
 1.0.2
 
 新增強制更新週番表按鈕
