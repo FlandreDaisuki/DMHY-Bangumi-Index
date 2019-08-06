@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import { WEEKDAY_STR } from '../constants';
+
 export default {
   filters: {
     keywordLink(keyword) {
@@ -87,7 +89,6 @@ export default {
       return `西元 ${dateStr} ${longWeekdayStr}`;
     },
     orderedWeeklyBangumi() {
-      const WEEKDAY_STR = this.$store.state.const.WEEKDAY_STR;
       const TODAY_SENSITIVE_WEEKDAY_STR = WEEKDAY_STR.repeat(3).slice(
         this.todayWeekday + 5,
         this.todayWeekday + 12,
@@ -108,7 +109,8 @@ export default {
       this.expansion = !this.expansion;
     },
     forceUpdateWeekly() {
-      localStorage.setItem('DMHY-Bangumi-Index::weekly-bangumi-cache-t', 0);
+      const cacheKey = this.$store.state.storageKey.cacheT;
+      localStorage.setItem(cacheKey, 0);
       location.assign('https://share.dmhy.org/');
     },
   },

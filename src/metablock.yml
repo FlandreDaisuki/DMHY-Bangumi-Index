@@ -19,5 +19,6 @@ connect:
   - flandredaisuki.github.io
 grant:
   - GM_xmlhttpRequest
+  - unsafeWindow
 license: MIT
 noframes: true
