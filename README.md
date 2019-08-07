@@ -6,14 +6,14 @@
 
 ## 預覽圖
 
-![preview](assets/preview1.jpg)
-![preview](assets/preview2.jpg)
-![preview](assets/preview3.jpg)
+![preview1](https://raw.githubusercontent.com/FlandreDaisuki/DMHY-Bangumi-Index/master/assets/preview1.jpg)
+![preview2](https://raw.githubusercontent.com/FlandreDaisuki/DMHY-Bangumi-Index/master/assets/preview2.jpg)
+![preview3](https://raw.githubusercontent.com/FlandreDaisuki/DMHY-Bangumi-Index/master/assets/preview3.jpg)
 
 ## 如何回饋
 
 1. 直接使用 GitHub 或是 fork 去改 `docs/` 下的 yaml 檔
-2. 發 PR 給我
+2. 根據[修改大綱](https://flandredaisuki.github.io/DMHY-Bangumi-Index/)改好後，發 PR 給我
 
 ## 授權
 
