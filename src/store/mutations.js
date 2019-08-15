@@ -89,8 +89,13 @@ export const saveFavorites = state => {
 };
 export const loadFavorites = state => {
   const key = state.storageKey.favorite;
-  state.favoriteBangumiList =
-    JSON.parse(LZString.decompressFromBase64(localStorage.getItem(key))) || [];
+  const fav = localStorage.getItem(key);
+  if (fav) {
+    state.favoriteBangumiList =
+      JSON.parse(LZString.decompressFromBase64(fav)) || [];
+  } else {
+    state.favoriteBangumiList = [];
+  }
 };
 export const saveWeeklyBangumi = state => {
   const key = state.storageKey.weekly;
@@ -98,8 +103,12 @@ export const saveWeeklyBangumi = state => {
 };
 export const loadWeeklyBangumi = state => {
   const key = state.storageKey.weekly;
-  state.weeklyBangumi =
-    decodeWeeklyBangumiFromStorage(localStorage.getItem(key)) || {};
+  const xwb = localStorage.getItem(key);
+  if (xwb) {
+    state.weeklyBangumi = decodeWeeklyBangumiFromStorage(xwb) || {};
+  } else {
+    state.weeklyBangumi = {};
+  }
 };
 
 export default {
