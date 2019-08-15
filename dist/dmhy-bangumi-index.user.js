@@ -15,7 +15,7 @@
 // @connect   flandredaisuki.github.io
 // @license   MIT
 // @noframes
-// @version   1.1.1
+// @version   1.1.2
 // @grant     GM_xmlhttpRequest
 // @grant     unsafeWindow
 // ==/UserScript==
@@ -587,7 +587,7 @@
   const __vue_script__$1 = script$1;
 
   /* template */
-  var __vue_render__$1 = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('header',[_c('span',[_vm._v("新番資源索引")]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.todayStr))]),_vm._v(" "),_c('span',[_c('a',{attrs:{"href":"javascript:;","role":"button"},on:{"click":_vm.invExpansion}},[_vm._v(_vm._s(_vm.expansion ? '收起' : '展開'))])]),_vm._v(" "),_c('span',[_c('a',{attrs:{"href":"javascript:;","role":"button"},on:{"click":_vm.forceUpdateWeekly}},[_vm._v("強制更新")])])]),_vm._v(" "),_c('table',{staticClass:"weekly-table"},_vm._l((_vm.orderedWeeklyBangumi),function(ref,index){
+  var __vue_render__$1 = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('header',[_c('span',[_vm._v("新番資源索引")]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.todayStr))]),_vm._v(" "),_c('span',[_c('a',{attrs:{"href":"javascript:;","role":"button"},on:{"click":_vm.invExpansion}},[_vm._v("\n        "+_vm._s(_vm.expansion ? '收起' : '展開')+"\n      ")])]),_vm._v(" "),_c('span',[_c('a',{attrs:{"href":"javascript:;","role":"button"},on:{"click":_vm.forceUpdateWeekly}},[_vm._v("強制更新")])])]),_vm._v(" "),_c('table',{staticClass:"weekly-table"},_vm._l((_vm.orderedWeeklyBangumi),function(ref,index){
   var weekday = ref[0];
   var dayBangumiList = ref[1];
   return _c('tr',{directives:[{name:"show",rawName:"v-show",value:(_vm.expansion ? true : index < 4),expression:"expansion ? true : index < 4"}],key:weekday,staticClass:"weekly-tr",class:{ 'weekly-tr-today': index === 2 }},[_c('td',{staticClass:"weekly-weekday-str"},[_vm._v(_vm._s(_vm._f("longerWeekdayStr")(weekday)))]),_vm._v(" "),_c('td',_vm._l((dayBangumiList),function(bangumi){return _c('a',{key:bangumi.title,staticClass:"bangumi",class:{ 'bangumi-old': !bangumi.isnew },attrs:{"href":_vm._f("keywordLink")(bangumi.keyword)}},[_vm._v(_vm._s(bangumi.title))])}),0)])}),0)])};
@@ -596,11 +596,11 @@
     /* style */
     const __vue_inject_styles__$1 = function (inject) {
       if (!inject) return
-      inject("data-v-9a5fba2c_0", { source: "a[data-v-9a5fba2c]{color:#247;text-decoration:none}header[data-v-9a5fba2c]{color:#fff;background-color:#247;padding:5px;display:flex;font-size:.8rem}header>span[data-v-9a5fba2c]:nth-of-type(n+2)::before{content:'::';padding:0 8px}header>span>a[data-v-9a5fba2c]{color:#fff}.weekly-table[data-v-9a5fba2c]{border-collapse:collapse;width:100%}.weekly-tr[data-v-9a5fba2c]{display:flex;align-items:center;border:2px solid #fff;background:#fff}.weekly-tr.weekly-tr-today[data-v-9a5fba2c]{background-color:#ff9}.weekly-weekday-str[data-v-9a5fba2c]{padding:3px 15px;margin-right:3px;background-color:#7e99be;color:#fff;font-weight:bolder}.bangumi[data-v-9a5fba2c]{border:1px solid orange;padding:2px;margin:1px 3px}.bangumi-old[data-v-9a5fba2c]{border:1px solid #002fff}", map: undefined, media: undefined });
+      inject("data-v-b8a55bea_0", { source: "a[data-v-b8a55bea]{color:#247;text-decoration:none}header[data-v-b8a55bea]{color:#fff;background-color:#247;padding:5px;display:flex;font-size:.8rem}header>span[data-v-b8a55bea]:nth-of-type(n+2)::before{content:'::';padding:0 8px}header>span>a[data-v-b8a55bea]{color:#fff}.weekly-table[data-v-b8a55bea]{border-collapse:collapse;width:100%}.weekly-tr[data-v-b8a55bea]{display:flex;align-items:center;border:2px solid #fff;background:#fff}.weekly-tr.weekly-tr-today[data-v-b8a55bea]{background-color:#ff9}.weekly-weekday-str[data-v-b8a55bea]{padding:3px 15px;margin-right:3px;background-color:#7e99be;color:#fff;font-weight:bolder}.weekly-weekday-str+td[data-v-b8a55bea]{display:flex;flex-flow:row wrap;flex:1}.bangumi[data-v-b8a55bea]{border:1px solid orange;padding:2px;margin:1px 3px}.bangumi-old[data-v-b8a55bea]{border:1px solid #002fff}", map: undefined, media: undefined });
 
     };
     /* scoped */
-    const __vue_scope_id__$1 = "data-v-9a5fba2c";
+    const __vue_scope_id__$1 = "data-v-b8a55bea";
     /* module identifier */
     const __vue_module_identifier__$1 = undefined;
     /* functional template */

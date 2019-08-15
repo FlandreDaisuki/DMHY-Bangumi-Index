@@ -4,9 +4,9 @@
       <span>新番資源索引</span>
       <span>{{ todayStr }}</span>
       <span>
-        <a href="javascript:;" role="button" @click="invExpansion">{{
-          expansion ? '收起' : '展開'
-        }}</a>
+        <a href="javascript:;" role="button" @click="invExpansion">
+          {{ expansion ? '收起' : '展開' }}
+        </a>
       </span>
       <span>
         <a href="javascript:;" role="button" @click="forceUpdateWeekly"
@@ -155,6 +155,11 @@ header > span > a {
   background-color: #7e99be;
   color: white;
   font-weight: bolder;
+}
+.weekly-weekday-str + td {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1;
 }
 .bangumi {
   border: 1px solid #ffa500;
