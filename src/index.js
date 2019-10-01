@@ -9,7 +9,7 @@ import { A_DAY_MS } from './constants';
 
 // pre-process
 
-const $$ = s => Array.from(document.querySelectorAll(s));
+const $$ = (s) => Array.from(document.querySelectorAll(s));
 
 for (const adEl of $$('[id*="1280"]')) {
   adEl.remove();

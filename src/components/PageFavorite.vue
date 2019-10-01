@@ -12,8 +12,7 @@
           :href="bangumi.keyword | keywordLink"
           role="button"
           class="bangumi"
-          >{{ bangumi.title }}</a
-        >
+        >{{ bangumi.title }}</a>
       </div>
       <div class="input-area">
         <input
@@ -26,8 +25,12 @@
           @focus="setValidity('')"
         />
         <span class="tooltip">{{ validityMsg }}</span>
-        <button class="add-btn" @click="addFavorite">加入</button>
-        <button class="del-btn" @click="delFavorite">刪除</button>
+        <button class="add-btn" @click="addFavorite">
+          加入
+        </button>
+        <button class="del-btn" @click="delFavorite">
+          刪除
+        </button>
       </div>
     </div>
   </div>
@@ -63,7 +66,7 @@ export default {
         this.setValidity('名稱欄為空');
         return;
       }
-      const found = this.favoriteBangumiList.find(b => b.title === this.utitle);
+      const found = this.favoriteBangumiList.find((b) => b.title === this.utitle);
       if (found) {
         this.setValidity('書籤名稱已存在');
         return;
@@ -80,7 +83,7 @@ export default {
         this.setValidity('名稱欄為空');
         return;
       }
-      const found = this.favoriteBangumiList.find(b => b.title === this.utitle);
+      const found = this.favoriteBangumiList.find((b) => b.title === this.utitle);
       if (!found) {
         this.setValidity('書籤名稱不存在');
         return;

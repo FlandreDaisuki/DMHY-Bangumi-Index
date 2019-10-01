@@ -1,5 +1,3 @@
-const error = 'error';
-
 module.exports = {
   env: {
     es6: true,
@@ -14,16 +12,35 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:vue/recommended',
-    '@vue/prettier',
   ],
   rules: {
+    'indent': ['error', 2],
+    'quotes': ['error', 'single'],
+    'semi': ['error', 'always'],
+    'arrow-parens': ['error', 'always'],
+    'comma-dangle': ['error', 'always-multiline'],
+    // spacings
+    'key-spacing': 'error',
+    'comma-spacing': 'error',
+    'arrow-spacing': 'error',
+    'keyword-spacing': 'error',
+    'object-curly-spacing': ['error', 'always'],
+    'space-infix-ops': 'error',
+    'space-before-blocks': 'error',
+    'space-before-function-paren': ['error', 'never'],
+    // warnings
     'no-console': 'off',
-    'key-spacing': error,
-    'comma-spacing': error,
-    'arrow-spacing': error,
-    'keyword-spacing': error,
-    'space-infix-ops': error,
-    'object-curly-spacing': [error, 'always'],
-    'space-before-blocks': error
+    'no-unused-vars': 'warn',
+    // prefers
+    'prefer-const': 'error',
+    // @vue
+    'vue/max-attributes-per-line': 'off',
+    'vue/html-self-closing': ['error', {
+      'html': {
+        'void': 'always',
+        'normal': 'never',
+        'component': 'always'
+      }
+    }],
   },
 };

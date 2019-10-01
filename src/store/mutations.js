@@ -17,22 +17,22 @@ import { WEEKDAY_STR } from '../constants';
  * → B := [T, K, N].join('\2')
  * → N := true: 1; false: 0;
  */
-const compressedEncode = wb => {
+const compressedEncode = (wb) => {
   return [...WEEKDAY_STR]
-    .map(w =>
+    .map((w) =>
       wb[w]
-        .map(b => [b.title, b.keyword, Number(b.isnew)].join('\x02'))
+        .map((b) => [b.title, b.keyword, Number(b.isnew)].join('\x02'))
         .join('\x01'),
     )
     .join('\x00');
 };
 
-const compressedDecode = xwb => {
+const compressedDecode = (xwb) => {
   return xwb
     .split('\x00')
     .map((xw, i) => {
       return {
-        [WEEKDAY_STR[i]]: xw.split('\x01').map(b => {
+        [WEEKDAY_STR[i]]: xw.split('\x01').map((b) => {
           const [title, keyword, isnew] = b.split('\x02');
           return {
             title,
@@ -47,11 +47,11 @@ const compressedDecode = xwb => {
     }, {});
 };
 
-const encodeWeeklyBangumiToStorage = wb => {
+const encodeWeeklyBangumiToStorage = (wb) => {
   return LZString.compressToBase64(compressedEncode(wb));
 };
 
-const decodeWeeklyBangumiFromStorage = xwb => {
+const decodeWeeklyBangumiFromStorage = (xwb) => {
   return compressedDecode(LZString.decompressFromBase64(xwb));
 };
 
@@ -74,20 +74,20 @@ export const appendFavoriteBangumi = (state, bangumi) => {
 };
 export const removeFavoriteBangumi = (state, bangumiTitle) => {
   const indexFound = state.favoriteBangumiList.findIndex(
-    b => b.title === bangumiTitle,
+    (b) => b.title === bangumiTitle,
   );
   if (indexFound >= 0) {
     state.favoriteBangumiList.splice(indexFound, 1);
   }
 };
-export const saveFavorites = state => {
+export const saveFavorites = (state) => {
   const key = state.storageKey.favorite;
   localStorage.setItem(
     key,
     LZString.compressToBase64(JSON.stringify(state.favoriteBangumiList)),
   );
 };
-export const loadFavorites = state => {
+export const loadFavorites = (state) => {
   const key = state.storageKey.favorite;
   const fav = localStorage.getItem(key);
   if (fav) {
@@ -97,11 +97,11 @@ export const loadFavorites = state => {
     state.favoriteBangumiList = [];
   }
 };
-export const saveWeeklyBangumi = state => {
+export const saveWeeklyBangumi = (state) => {
   const key = state.storageKey.weekly;
   localStorage.setItem(key, encodeWeeklyBangumiToStorage(state.weeklyBangumi));
 };
-export const loadWeeklyBangumi = state => {
+export const loadWeeklyBangumi = (state) => {
   const key = state.storageKey.weekly;
   const xwb = localStorage.getItem(key);
   if (xwb) {

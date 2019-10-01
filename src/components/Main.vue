@@ -1,10 +1,14 @@
 <template>
   <div id="🌐">
     <nav>
-      <router-link to="/weekly">新番索引</router-link>
-      <router-link to="/favorite">書籤索引</router-link>
+      <router-link to="/weekly">
+        新番索引
+      </router-link>
+      <router-link to="/favorite">
+        書籤索引
+      </router-link>
     </nav>
-    <router-view class="page-view"></router-view>
+    <router-view class="page-view" />
   </div>
 </template>
 

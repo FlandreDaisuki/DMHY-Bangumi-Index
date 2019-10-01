@@ -4,14 +4,12 @@
       <span>新番資源索引</span>
       <span>{{ todayStr }}</span>
       <span>
-        <a href="javascript:;" role="button" @click="invExpansion">
-          {{ expansion ? '收起' : '展開' }}
-        </a>
+        <a href="javascript:;" role="button" @click="invExpansion">{{
+          expansion ? "收起" : "展開"
+        }}</a>
       </span>
       <span>
-        <a href="javascript:;" role="button" @click="forceUpdateWeekly"
-          >強制更新</a
-        >
+        <a href="javascript:;" role="button" @click="forceUpdateWeekly">強制更新</a>
       </span>
     </header>
     <table class="weekly-table">
@@ -22,7 +20,9 @@
         class="weekly-tr"
         :class="{ 'weekly-tr-today': index === 2 }"
       >
-        <td class="weekly-weekday-str">{{ weekday | longerWeekdayStr }}</td>
+        <td class="weekly-weekday-str">
+          {{ weekday | longerWeekdayStr }}
+        </td>
         <td>
           <a
             v-for="bangumi in dayBangumiList"
@@ -30,8 +30,7 @@
             class="bangumi"
             :href="bangumi.keyword | keywordLink"
             :class="{ 'bangumi-old': !bangumi.isnew }"
-            >{{ bangumi.title }}</a
-          >
+          >{{ bangumi.title }}</a>
         </td>
       </tr>
     </table>
@@ -48,20 +47,20 @@ export default {
     },
     longerWeekdayStr(weekdayStr) {
       switch (weekdayStr) {
-        case '日':
-          return '星期日（日）';
-        case '一':
-          return '星期一（月）';
-        case '二':
-          return '星期二（火）';
-        case '三':
-          return '星期三（水）';
-        case '四':
-          return '星期四（木）';
-        case '五':
-          return '星期五（金）';
-        case '六':
-          return '星期六（土）';
+      case '日':
+        return '星期日（日）';
+      case '一':
+        return '星期一（月）';
+      case '二':
+        return '星期二（火）';
+      case '三':
+        return '星期三（水）';
+      case '四':
+        return '星期四（木）';
+      case '五':
+        return '星期五（金）';
+      case '六':
+        return '星期六（土）';
       }
     },
   },
@@ -91,7 +90,7 @@ export default {
     orderedWeeklyBangumi() {
       const TODAY_SENSITIVE_WEEKDAY_STR = WEEKDAY_STR.repeat(3).slice(
         this.todayWeekday + 5,
-        this.todayWeekday + 12,
+        this.todayWeekday + 12
       );
 
       const weeklyBangumi = this.$store.state.weeklyBangumi;
@@ -99,7 +98,7 @@ export default {
         (collection, weekdayStr) => {
           return collection.set(weekdayStr, weeklyBangumi[weekdayStr]);
         },
-        new Map(),
+        new Map()
       );
       return [...keyedWeeklyBangumi.entries()];
     },
@@ -130,7 +129,7 @@ header {
   font-size: 0.8rem;
 }
 header > span:nth-of-type(n + 2)::before {
-  content: '::';
+  content: "::";
   padding: 0 8px;
 }
 header > span > a {

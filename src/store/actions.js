@@ -2,7 +2,7 @@ import jsyaml from 'js-yaml';
 
 import { WEEKDAY_STR } from '../constants';
 
-const fetcher = async (url, options = {}) => {
+const fetcher = async(url, options = {}) => {
   const defaultOptions = {
     method: 'GET',
     headers: {
@@ -14,11 +14,11 @@ const fetcher = async (url, options = {}) => {
     GM_xmlhttpRequest({
       ...opt,
       url,
-      onload: res => {
+      onload: (res) => {
         // console.log(res);
         resolve(res.responseText);
       },
-      onerror: err => {
+      onerror: (err) => {
         console.error('DMHY-Bangumi-Index::req-err', err);
         reject(err);
       },
@@ -42,7 +42,7 @@ const YAMLToWeeklyBangumiPayload = (data, isnew) => {
   return weeklyBangumiPayload;
 };
 
-const downloadBangumi = async newold => {
+const downloadBangumi = async(newold) => {
   const txt = await fetcher(
     `https://flandredaisuki.github.io/DMHY-Bangumi-Index/${newold}.yaml`,
   );
@@ -53,7 +53,7 @@ const downloadBangumi = async newold => {
 
 // exports
 
-export const downloadWeeklyBangumi = async ({ commit }) => {
+export const downloadWeeklyBangumi = async({ commit }) => {
   commit('appendWeeklyBangumi', await downloadBangumi('old'));
   commit('appendWeeklyBangumi', await downloadBangumi('new'));
   commit('saveWeeklyBangumi');
