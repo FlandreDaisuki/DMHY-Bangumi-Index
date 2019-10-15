@@ -4,6 +4,11 @@
 
 **本專案需要大家回饋想看的番或關鍵字**，專案維護者只會加入比較粗糙的新番關鍵字
 
+## 安裝方法
+
+1. 安裝 Tampermonkey
+1. 點[這裡](https://github.com/FlandreDaisuki/DMHY-Bangumi-Index/raw/master/dist/dmhy-bangumi-index.user.js)下載
+
 ## 預覽圖
 
 ![preview1](https://raw.githubusercontent.com/FlandreDaisuki/DMHY-Bangumi-Index/master/assets/preview1.jpg)
