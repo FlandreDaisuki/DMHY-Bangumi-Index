@@ -4,9 +4,9 @@
 // @description       Let DMHY header index back!
 // @description:zh-TW 把動漫花園上方的索引弄回來
 // @namespace https://github.com/FlandreDaisuki
-// @version   1.1.2
 // @author    FlandreDaisuki
-// @noframes
+// @match     https://share.dmhy.org/
+// @match     https://share.dmhy.org/topics/*
 // @require   https://unpkg.com/vue@2.6.10/dist/vue.min.js
 // @require   https://unpkg.com/vuex@3.1.1/dist/vuex.min.js
 // @require   https://unpkg.com/vue-router@3.0.7/dist/vue-router.min.js
@@ -14,8 +14,8 @@
 // @require   https://unpkg.com/lz-string@1.4.4/libs/lz-string.min.js
 // @connect   flandredaisuki.github.io
 // @license   MIT
-// @match     https://share.dmhy.org/
-// @match     https://share.dmhy.org/topics/*
+// @noframes
+// @version   1.1.3
 // @grant     GM_xmlhttpRequest
 // @grant     unsafeWindow
 // ==/UserScript==
