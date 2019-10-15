@@ -70,7 +70,7 @@ export default {
       now,
       date: new Date(now),
       todayWeekday: new Date(now).getDay(),
-      expansion: false,
+      expansion: localStorage.getItem(this.$store.state.storageKey.expansion) === 'true',
     };
   },
   computed: {
@@ -106,6 +106,7 @@ export default {
   methods: {
     invExpansion() {
       this.expansion = !this.expansion;
+      localStorage.setItem(this.$store.state.storageKey.expansion, this.expansion);
     },
     forceUpdateWeekly() {
       const cacheKey = this.$store.state.storageKey.cacheT;

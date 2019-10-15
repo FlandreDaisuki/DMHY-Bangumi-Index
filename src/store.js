@@ -14,6 +14,7 @@ export default new Vuex.Store({
       favorite: 'DMHY-Bangumi-Index::favorite',
       weekly: 'DMHY-Bangumi-Index::weekly-bangumi',
       cacheT: 'DMHY-Bangumi-Index::weekly-bangumi-cache-t',
+      expansion: 'DMHY-Bangumi-Index::expansion',
     },
   },
   mutations,
