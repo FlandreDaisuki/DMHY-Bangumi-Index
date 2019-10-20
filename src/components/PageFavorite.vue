@@ -125,8 +125,6 @@ header > span > a {
   border: 1px solid #ffa500;
   padding: 2px;
   margin: 1px 3px;
-  display: flex;
-  align-items: center;
 }
 .input-area {
   display: flex;
