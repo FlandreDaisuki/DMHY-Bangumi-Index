@@ -165,6 +165,8 @@ header > span > a {
   border: 1px solid #ffa500;
   padding: 2px;
   margin: 1px 3px;
+  display: inline-flex;
+  align-items: center;
 }
 .bangumi-old {
   border: 1px solid #002fff;
