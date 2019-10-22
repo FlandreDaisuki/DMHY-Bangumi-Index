@@ -120,6 +120,7 @@ header > span > a {
 .favorite-pool {
   padding: 10px;
   min-height: 14px;
+  display: flex; 
 }
 .bangumi {
   border: 1px solid #ffa500;
