@@ -32,14 +32,16 @@ const compressedDecode = (xwb) => {
     .split('\x00')
     .map((xw, i) => {
       return {
-        [WEEKDAY_STR[i]]: xw.split('\x01').map((b) => {
-          const [title, keyword, isnew] = b.split('\x02');
-          return {
-            title,
-            keyword,
-            isnew: isnew === '1',
-          };
-        }),
+        [WEEKDAY_STR[i]]: xw.split('\x01')
+          .filter(Boolean)
+          .map((b) => {
+            const [title, keyword, isnew] = b.split('\x02');
+            return {
+              title,
+              keyword,
+              isnew: isnew === '1',
+            };
+          }),
       };
     })
     .reduce((c, v) => {

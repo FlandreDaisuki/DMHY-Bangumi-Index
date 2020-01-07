@@ -15,7 +15,7 @@
 // @connect   flandredaisuki.github.io
 // @license   MIT
 // @noframes
-// @version   1.1.4
+// @version   1.1.5
 // @grant     GM_xmlhttpRequest
 // @grant     unsafeWindow
 // ==/UserScript==
@@ -63,14 +63,16 @@
       .split('\x00')
       .map((xw, i) => {
         return {
-          [WEEKDAY_STR[i]]: xw.split('\x01').map((b) => {
-            const [title, keyword, isnew] = b.split('\x02');
-            return {
-              title,
-              keyword,
-              isnew: isnew === '1',
-            };
-          }),
+          [WEEKDAY_STR[i]]: xw.split('\x01')
+            .filter(Boolean)
+            .map((b) => {
+              const [title, keyword, isnew] = b.split('\x02');
+              return {
+                title,
+                keyword,
+                isnew: isnew === '1',
+              };
+            }),
         };
       })
       .reduce((c, v) => {
