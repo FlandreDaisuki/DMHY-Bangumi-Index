@@ -693,7 +693,7 @@
 
   const $$ = (s) => Array.from(document.querySelectorAll(s));
 
-  for (const adEl of $$('[id*="1280"]')) {
+  for (const adEl of $$('[id*="jmd"]')) {
     adEl.remove();
   }
 
