@@ -1,6 +1,6 @@
 {
   "name": "dmhy-bangumi-index",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Let DMHY header index back!",
   "main": "index.js",
   "scripts": {

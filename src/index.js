@@ -9,16 +9,22 @@ import { A_DAY_MS } from './constants';
 
 // pre-process
 
+const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
 
-for (const adEl of $$('[id*="1280"]')) {
+const adSelectors = [
+  '.ad',
+  '.main > div:first-child',
+  '[id="1280_ad"] > *:not(.table):not(.clear)',
+].join(',');
+for (const adEl of $$(adSelectors)) {
   adEl.remove();
 }
 
 // entry point
 
 const vm = new Vue({
-  el: $$('div.main > div')[0],
+  el: $('#mini_jmd') ? $('#mini_jmd').parentElement : $('#mini_jmd'),
   store,
   router,
   mounted() {
