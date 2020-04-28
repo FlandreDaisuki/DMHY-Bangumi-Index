@@ -7,6 +7,8 @@ description:
 namespace: https://github.com/FlandreDaisuki
 author: FlandreDaisuki
 match:
+  - https://dmhy.org/
+  - https://dmhy.org/topics/*
   - https://share.dmhy.org/
   - https://share.dmhy.org/topics/*
 require:
