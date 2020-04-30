@@ -24,7 +24,7 @@ for (const adEl of $$(adSelectors)) {
 // entry point
 
 const vm = new Vue({
-  el: $('#mini_jmd') ? $('#mini_jmd').parentElement : $('#mini_jmd'),
+  el: $('#mini_jmd').parentElement,
   store,
   router,
   mounted() {
