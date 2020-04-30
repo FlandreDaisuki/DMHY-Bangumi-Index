@@ -14,8 +14,8 @@ const $$ = (s) => Array.from(document.querySelectorAll(s));
 
 const adSelectors = [
   '.ad',
+  '[id="1280_ad"] > a',
   '.main > div:first-child',
-  '[id="1280_ad"] > *:not(.table):not(.clear)',
 ].join(',');
 for (const adEl of $$(adSelectors)) {
   adEl.remove();

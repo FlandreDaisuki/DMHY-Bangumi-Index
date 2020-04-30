@@ -17,7 +17,7 @@
 // @connect   flandredaisuki.github.io
 // @license   MIT
 // @noframes
-// @version   1.1.7
+// @version   1.1.8
 // @grant     GM_xmlhttpRequest
 // @grant     unsafeWindow
 // ==/UserScript==
@@ -698,8 +698,8 @@
 
   const adSelectors = [
     '.ad',
+    '[id="1280_ad"] > a',
     '.main > div:first-child',
-    '[id="1280_ad"] > *:not(.table):not(.clear)',
   ].join(',');
   for (const adEl of $$(adSelectors)) {
     adEl.remove();
