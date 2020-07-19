@@ -17,7 +17,7 @@
 // @connect   flandredaisuki.github.io
 // @license   MIT
 // @noframes
-// @version   1.1.8
+// @version   1.1.9
 // @grant     GM_xmlhttpRequest
 // @grant     unsafeWindow
 // ==/UserScript==
@@ -34,6 +34,9 @@
   const A_DAY_MS = 86400 * 1000;
 
   const WEEKDAY_STR = '日一二三四五六';
+
+  const BASE_URI = 'https://flandredaisuki.github.io/DMHY-Bangumi-Index';
+  // const BASE_URI = 'https://flandredaisuki.github.io/DMHY-Bangumi-Index/history/2019-10';
 
   /**
    * wb := weeklyBangumi
@@ -198,7 +201,7 @@
 
   const downloadBangumi = async(newold) => {
     const txt = await fetcher(
-      `https://flandredaisuki.github.io/DMHY-Bangumi-Index/${newold}.yaml`,
+      `${BASE_URI}/${newold}.yaml`,
     );
 
     const data = jsyaml.safeLoad(txt);
@@ -493,7 +496,7 @@
     
 
     
-    const __vue_component__ = normalizeComponent(
+    const __vue_component__ = /*#__PURE__*/normalizeComponent(
       { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
       __vue_inject_styles__,
       __vue_script__,
@@ -612,7 +615,7 @@
     
 
     
-    const __vue_component__$1 = normalizeComponent(
+    const __vue_component__$1 = /*#__PURE__*/normalizeComponent(
       { render: __vue_render__$1, staticRenderFns: __vue_staticRenderFns__$1 },
       __vue_inject_styles__$1,
       __vue_script__$1,
@@ -678,7 +681,7 @@
     
 
     
-    const __vue_component__$2 = normalizeComponent(
+    const __vue_component__$2 = /*#__PURE__*/normalizeComponent(
       { render: __vue_render__$2, staticRenderFns: __vue_staticRenderFns__$2 },
       __vue_inject_styles__$2,
       __vue_script__$2,

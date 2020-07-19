@@ -9,6 +9,19 @@
 1. 安裝 Tampermonkey
 1. 點[這裡](https://github.com/FlandreDaisuki/DMHY-Bangumi-Index/raw/master/dist/dmhy-bangumi-index.user.js)下載
 
+## 舊番表
+
+打開腳本管理器前幾行可以看到:
+
+```js
+  const WEEKDAY_STR = '日一二三四五六';
+
+  const BASE_URI = 'https://flandredaisuki.github.io/DMHY-Bangumi-Index';
+  // const BASE_URI = 'https://flandredaisuki.github.io/DMHY-Bangumi-Index/history/2019-10';
+```
+
+下面的註解就是使用方法，歷史番表存在 [docs/history](https://github.com/FlandreDaisuki/DMHY-Bangumi-Index/tree/master/docs/history) 裡
+
 ## 預覽圖
 
 ![preview1](https://raw.githubusercontent.com/FlandreDaisuki/DMHY-Bangumi-Index/master/assets/preview1.jpg)
@@ -24,4 +37,4 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2019 FlandreDaisuki
+Copyright (c) 2019-2020 FlandreDaisuki

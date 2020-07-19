@@ -1,6 +1,6 @@
 import jsyaml from 'js-yaml';
 
-import { WEEKDAY_STR } from '../constants';
+import { WEEKDAY_STR, BASE_URI } from '../constants';
 
 const fetcher = async(url, options = {}) => {
   const defaultOptions = {
@@ -44,7 +44,7 @@ const YAMLToWeeklyBangumiPayload = (data, isnew) => {
 
 const downloadBangumi = async(newold) => {
   const txt = await fetcher(
-    `https://flandredaisuki.github.io/DMHY-Bangumi-Index/${newold}.yaml`,
+    `${BASE_URI}/${newold}.yaml`,
   );
 
   const data = jsyaml.safeLoad(txt);
