@@ -1,6 +1,5 @@
-import jsyaml from 'js-yaml';
-
-import { WEEKDAY_STR, BASE_URI } from '../constants';
+import yaml from 'js-yaml';
+import { WEEKDAY_STR, BASE_URI } from './constants';
 
 const fetcher = async(url, options = {}) => {
   const defaultOptions = {
@@ -15,7 +14,6 @@ const fetcher = async(url, options = {}) => {
       ...opt,
       url,
       onload: (res) => {
-        // console.log(res);
         resolve(res.responseText);
       },
       onerror: (err) => {
@@ -42,33 +40,11 @@ const YAMLToWeeklyBangumiPayload = (data, isnew) => {
   return weeklyBangumiPayload;
 };
 
-const downloadBangumi = async(newold) => {
+export const downloadBangumi = async(newold) => {
   const txt = await fetcher(
     `${BASE_URI}/${newold}.yaml`,
   );
 
-  const data = jsyaml.safeLoad(txt);
+  const data = yaml.load(txt);
   return YAMLToWeeklyBangumiPayload(data, newold === 'new');
-};
-
-// exports
-
-export const downloadWeeklyBangumi = async({ commit }) => {
-  commit('appendWeeklyBangumi', await downloadBangumi('old'));
-  commit('appendWeeklyBangumi', await downloadBangumi('new'));
-  commit('saveWeeklyBangumi');
-};
-export const appendFavoriteBangumi = ({ commit }, bangumi) => {
-  commit('appendFavoriteBangumi', bangumi);
-  commit('saveFavorites');
-};
-export const removeFavoriteBangumi = ({ commit }, bangumiTitle) => {
-  commit('removeFavoriteBangumi', bangumiTitle);
-  commit('saveFavorites');
-};
-
-export default {
-  downloadWeeklyBangumi,
-  appendFavoriteBangumi,
-  removeFavoriteBangumi,
 };

@@ -15,7 +15,9 @@
     ],
     "cSpell.words": [
         "bangumi",
-        "dmhy"
+        "dmhy",
+        "metablock",
+        "noframes"
     ],
     "cSpell.ignorePaths": [
         "**/package-lock.json",

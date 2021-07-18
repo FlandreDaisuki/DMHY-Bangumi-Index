@@ -13,7 +13,22 @@
 </template>
 
 <script>
-export default {};
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+import * as favorite from '../store/favorite';
+import * as weeklyBangumi from '../store/weeklyBangumi';
+
+export default {
+  setup() {
+    const router = useRouter();
+    onMounted(() => {
+      router.push('/weekly');
+      favorite.load();
+      favorite.save();
+      weeklyBangumi.loadWithCache();
+    });
+  },
+};
 </script>
 
 <style scoped>

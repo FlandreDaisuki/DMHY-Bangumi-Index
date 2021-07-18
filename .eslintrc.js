@@ -7,7 +7,7 @@ module.exports = {
   },
   parserOptions: {
     sourceType: 'module',
-    ecmaVersion: 10
+    ecmaVersion: 2021,
   },
   extends: [
     'eslint:recommended',
@@ -39,8 +39,8 @@ module.exports = {
       'html': {
         'void': 'always',
         'normal': 'never',
-        'component': 'always'
-      }
+        'component': 'always',
+      },
     }],
   },
 };

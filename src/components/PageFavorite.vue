@@ -7,16 +7,16 @@
     <div class="favorite-area">
       <div class="favorite-pool">
         <a
-          v-for="bangumi in favoriteBangumiList"
+          v-for="bangumi in favorites"
           :key="bangumi.title"
-          :href="bangumi.keyword | keywordLink"
+          :href="createKeywordLink(bangumi.keyword)"
           role="button"
           class="bangumi"
         >{{ bangumi.title }}</a>
       </div>
       <div class="input-area">
         <input
-          ref="userTitleInput"
+          ref="titleInputEl"
           v-model="userInputStr"
           type="text"
           class="user-title-input"
@@ -25,72 +25,54 @@
           @focus="setValidity('')"
         />
         <span class="tooltip">{{ validityMsg }}</span>
-        <button class="add-btn" @click="addFavorite">
+        <button class="add-btn" @click="onClickAdd">
           加入
         </button>
-        <button class="del-btn" @click="delFavorite">
+        <button class="del-btn" @click="onClickRemove">
           刪除
         </button>
       </div>
     </div>
   </div>
 </template>
+
 <script>
+import { computed, ref } from 'vue';
+import { createKeywordLink } from '../utils';
+import { favorites, find, add, remove } from '../store/favorite';
+
 export default {
-  filters: {
-    keywordLink(keyword) {
-      return `/topics/list?keyword=${keyword}`;
-    },
-  },
-  data() {
-    return {
-      userInputStr: '',
-      validityMsg: '',
+  setup() {
+    const userInputStr = ref('');
+    const validityMsg = ref('');
+    const title = computed(() => userInputStr.value.trim());
+    const titleInputEl = ref();
+
+    const setValidity = (msg) => {
+      validityMsg.value = msg;
+      titleInputEl.value.setCustomValidity(msg);
     };
-  },
-  computed: {
-    favoriteBangumiList() {
-      return this.$store.state.favoriteBangumiList;
-    },
-    utitle() {
-      return this.userInputStr.trim();
-    },
-  },
-  methods: {
-    setValidity(msg) {
-      this.validityMsg = msg;
-      this.$refs.userTitleInput.setCustomValidity(this.validityMsg);
-    },
-    addFavorite() {
-      if (!this.utitle) {
-        this.setValidity('名稱欄為空');
-        return;
-      }
-      const found = this.favoriteBangumiList.find((b) => b.title === this.utitle);
-      if (found) {
-        this.setValidity('書籤名稱已存在');
-        return;
-      }
+    const onClickAdd = () => {
+      if (!title.value) { return setValidity('名稱欄為空'); }
+      if (find(title.value).found) { return setValidity('書籤名稱已存在'); }
+      add(title.value);
+    };
+    const onClickRemove = () => {
+      if (!title.value) { return setValidity('名稱欄為空'); }
+      if (!find(title.value).found) { return setValidity('書籤名稱不存在'); }
+      remove(title.value);
+    };
 
-      const keyword = new URL(location).searchParams.get('keyword');
-      this.$store.dispatch('appendFavoriteBangumi', {
-        title: this.utitle,
-        keyword,
-      });
-    },
-    delFavorite() {
-      if (!this.utitle) {
-        this.setValidity('名稱欄為空');
-        return;
-      }
-      const found = this.favoriteBangumiList.find((b) => b.title === this.utitle);
-      if (!found) {
-        this.setValidity('書籤名稱不存在');
-        return;
-      }
-
-      this.$store.dispatch('removeFavoriteBangumi', this.utitle);
-    },
+    return {
+      userInputStr,
+      favorites,
+      validityMsg,
+      titleInputEl,
+      createKeywordLink,
+      setValidity,
+      onClickAdd,
+      onClickRemove,
+    };
   },
 };
 </script>
@@ -120,7 +102,7 @@ header > span > a {
 .favorite-pool {
   padding: 10px;
   min-height: 14px;
-  display: flex; 
+  display: flex;
 }
 .bangumi {
   border: 1px solid #ffa500;

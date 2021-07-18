@@ -1,6 +1,6 @@
 {
   "name": "dmhy-bangumi-index",
-  "version": "1.1.9",
+  "version": "1.2.0",
   "description": "Let DMHY header index back!",
   "main": "index.js",
   "scripts": {
@@ -18,20 +18,21 @@
   },
   "homepage": "https://github.com/FlandreDaisuki/DMHY-Bangumi-Index#readme",
   "devDependencies": {
-    "eslint": "^7.5.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-vue": "^6.2.2",
-    "rollup": "^2.22.1",
+    "@vue/compiler-sfc": "^3.1.5",
+    "eslint": "^7.30.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.13.0",
+    "postcss": "^8.3.5",
+    "rollup": "^2.53.2",
     "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-userscript-metablock": "^0.2.5",
-    "rollup-plugin-vue": "^5.1.9",
-    "vue-template-compiler": "^2.6.11"
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-userscript-metablock": "^0.3.0",
+    "rollup-plugin-vue": "^6.0.0"
   },
   "dependencies": {
-    "js-yaml": "^3.14.0",
+    "js-yaml": "^4.1.0",
     "lz-string": "^1.4.4",
-    "vue": "^2.6.11",
-    "vue-router": "^3.3.4",
-    "vuex": "^3.5.1"
+    "vue": "^3.1.5",
+    "vue-router": "^4.0.10"
   }
 }

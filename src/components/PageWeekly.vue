@@ -4,9 +4,7 @@
       <span>新番資源索引</span>
       <span>{{ todayStr }}</span>
       <span>
-        <a href="javascript:;" role="button" @click="invExpansion">{{
-          expansion ? "收起" : "展開"
-        }}</a>
+        <a href="javascript:;" role="button" @click="toggleExpansion">{{ expansionStr }}</a>
       </span>
       <span>
         <a href="javascript:;" role="button" @click="forceUpdateWeekly">強制更新</a>
@@ -15,20 +13,20 @@
     <table class="weekly-table">
       <tr
         v-for="([weekday, dayBangumiList], index) in orderedWeeklyBangumi"
-        v-show="expansion ? true : index < 4"
+        v-show="isIndexShow(index)"
         :key="weekday"
         class="weekly-tr"
         :class="{ 'weekly-tr-today': index === 2 }"
       >
         <td class="weekly-weekday-str">
-          {{ weekday | longerWeekdayStr }}
+          {{ transformWeekday(weekday) }}
         </td>
         <td>
           <a
             v-for="bangumi in dayBangumiList"
             :key="bangumi.title"
             class="bangumi"
-            :href="bangumi.keyword | keywordLink"
+            :href="createKeywordLink(bangumi.keyword)"
             :class="{ 'bangumi-old': !bangumi.isnew }"
           >{{ bangumi.title }}</a>
         </td>
@@ -38,81 +36,64 @@
 </template>
 
 <script>
+import { computed } from 'vue';
 import { WEEKDAY_STR } from '../constants';
+import { createKeywordLink, transformWeekday } from '../utils';
+import * as expansion from '../store/expansion';
+import { weeklyBangumi, cleanCacheTime } from '../store/weeklyBangumi';
 
 export default {
-  filters: {
-    keywordLink(keyword) {
-      return `/topics/list?keyword=${keyword}`;
-    },
-    longerWeekdayStr(weekdayStr) {
-      switch (weekdayStr) {
-      case '日':
-        return '星期日（日）';
-      case '一':
-        return '星期一（月）';
-      case '二':
-        return '星期二（火）';
-      case '三':
-        return '星期三（水）';
-      case '四':
-        return '星期四（木）';
-      case '五':
-        return '星期五（金）';
-      case '六':
-        return '星期六（土）';
-      }
-    },
-  },
-  data() {
-    const now = Date.now();
-    return {
-      now,
-      date: new Date(now),
-      todayWeekday: new Date(now).getDay(),
-      expansion: localStorage.getItem(this.$store.state.storageKey.expansion) === 'true',
-    };
-  },
-  computed: {
-    todayStr() {
+  setup() {
+    const date = new Date();
+    const todayWeekday = date.getDay();
+    const toggleExpansion = () => expansion.set(!expansion.get());
+
+    const expansionStr = computed(() => expansion.get() ? '收起' : '展開');
+    const todayStr = computed(() => {
       const longWeekdayStr = new Intl.DateTimeFormat('zh', {
         weekday: 'long',
-      }).format(this.date);
+      }).format(date);
 
       const dateStr = new Intl.DateTimeFormat('zh', {
         day: 'numeric',
         month: 'long',
         year: 'numeric',
-      }).format(this.date);
+      }).format(date);
 
       return `西元 ${dateStr} ${longWeekdayStr}`;
-    },
-    orderedWeeklyBangumi() {
-      const TODAY_SENSITIVE_WEEKDAY_STR = WEEKDAY_STR.repeat(3).slice(
-        this.todayWeekday + 5,
-        this.todayWeekday + 12
-      );
+    });
 
-      const weeklyBangumi = this.$store.state.weeklyBangumi;
-      const keyedWeeklyBangumi = [...TODAY_SENSITIVE_WEEKDAY_STR].reduce(
+    const TODAY_SENSITIVE_WEEKDAY_STR = WEEKDAY_STR.repeat(3)
+      .slice(todayWeekday + 5, todayWeekday + 12);
+
+    const orderedWeeklyBangumi = computed(() => {
+      const weeklyBangumiMap = [...TODAY_SENSITIVE_WEEKDAY_STR].reduce(
         (collection, weekdayStr) => {
-          return collection.set(weekdayStr, weeklyBangumi[weekdayStr]);
+          return collection.set(weekdayStr, weeklyBangumi.value[weekdayStr]);
         },
-        new Map()
+        new Map(),
       );
-      return [...keyedWeeklyBangumi.entries()];
-    },
-  },
-  methods: {
-    invExpansion() {
-      this.expansion = !this.expansion;
-      localStorage.setItem(this.$store.state.storageKey.expansion, this.expansion);
-    },
-    forceUpdateWeekly() {
-      const cacheKey = this.$store.state.storageKey.cacheT;
-      localStorage.setItem(cacheKey, 0);
+      return [...weeklyBangumiMap.entries()];
+    });
+
+    const forceUpdateWeekly = async() => {
+      cleanCacheTime();
       location.assign('https://share.dmhy.org/');
-    },
+    };
+
+    const isIndexShow = (index) => expansion.get() ? true : index < 4;
+
+    return {
+      todayStr,
+      expansionStr,
+      orderedWeeklyBangumi,
+
+      toggleExpansion,
+      createKeywordLink,
+      transformWeekday,
+      isIndexShow,
+      forceUpdateWeekly,
+    };
   },
 };
 </script>
