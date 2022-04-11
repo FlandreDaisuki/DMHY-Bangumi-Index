@@ -9,14 +9,14 @@
 // @match     https://dmhy.org/topics/*
 // @match     https://share.dmhy.org/
 // @match     https://share.dmhy.org/topics/*
-// @require   https://unpkg.com/vue@3.1.5/dist/vue.global.prod.js
-// @require   https://unpkg.com/vue-router@4.0.10/dist/vue-router.global.prod.js
+// @require   https://unpkg.com/vue@3.2.31/dist/vue.global.prod.js
+// @require   https://unpkg.com/vue-router@4.0.14/dist/vue-router.global.prod.js
 // @require   https://unpkg.com/js-yaml@4.1.0/dist/js-yaml.min.js
 // @require   https://unpkg.com/lz-string@1.4.4/libs/lz-string.min.js
 // @connect   flandredaisuki.github.io
 // @license   MIT
 // @noframes
-// @version   1.2.1
+// @version   1.2.2
 // @grant     GM_xmlhttpRequest
 // @grant     unsafeWindow
 // ==/UserScript==
