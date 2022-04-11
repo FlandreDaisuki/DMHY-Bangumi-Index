@@ -11,6 +11,10 @@ module.exports = {
     '@flandredaisuki',
   ],
   rules: {
+    // fixed error  createApp not found in 'vue'  import/named
+    // fixed error  ref not found in 'vue'  import/named
+    'import/named': 'off',
+
     // @vue
     'vue/max-attributes-per-line': 'off',
     'vue/html-self-closing': ['error', {
