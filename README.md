@@ -37,4 +37,4 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 FlandreDaisuki
+Copyright (c) 2019-2022 FlandreDaisuki
