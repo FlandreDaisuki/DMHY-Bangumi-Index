@@ -1,7 +1,7 @@
 import fs from 'fs';
 import vue from 'rollup-plugin-vue';
 import postcss from 'rollup-plugin-postcss';
-import commonjs from 'rollup-plugin-commonjs';
+import commonjs from '@rollup/plugin-commonjs';
 import metablock from 'rollup-plugin-userscript-metablock';
 
 // prevent absolute path in script

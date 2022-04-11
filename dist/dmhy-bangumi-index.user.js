@@ -16,11 +16,11 @@
 // @connect   flandredaisuki.github.io
 // @license   MIT
 // @noframes
-// @version   1.2.0
+// @version   1.2.1
 // @grant     GM_xmlhttpRequest
 // @grant     unsafeWindow
 // ==/UserScript==
-(function (vue, lzString, yaml, vueRouter) {
+(function (vue, vueRouter, lzString, yaml) {
   'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -39,20 +39,20 @@
   const createKeywordLink = (keyword) => `/topics/list?keyword=${keyword}`;
   const transformWeekday = (weekdayStr) => {
     switch (weekdayStr) {
-    case '日':
-      return '星期日（日）';
-    case '一':
-      return '星期一（月）';
-    case '二':
-      return '星期二（火）';
-    case '三':
-      return '星期三（水）';
-    case '四':
-      return '星期四（木）';
-    case '五':
-      return '星期五（金）';
-    case '六':
-      return '星期六（土）';
+      case '日':
+        return '星期日（日）';
+      case '一':
+        return '星期一（月）';
+      case '二':
+        return '星期二（火）';
+      case '三':
+        return '星期三（水）';
+      case '四':
+        return '星期四（木）';
+      case '五':
+        return '星期五（金）';
+      case '六':
+        return '星期六（土）';
     }
   };
 
@@ -135,58 +135,56 @@
     },
   };
 
-  const _withId$2 = /*#__PURE__*/vue.withScopeId("data-v-138c4132");
-
-  vue.pushScopeId("data-v-138c4132");
-  const _hoisted_1$2 = /*#__PURE__*/vue.createVNode("header", null, [
-    /*#__PURE__*/vue.createVNode("span", null, "書籤索引"),
-    /*#__PURE__*/vue.createVNode("span", null, "將當前的搜索加入書籤，並自訂名稱")
-  ], -1 /* HOISTED */);
+  const _withScopeId$1 = n => (vue.pushScopeId("data-v-138c4132"),n=n(),vue.popScopeId(),n);
+  const _hoisted_1$2 = /*#__PURE__*/ _withScopeId$1(() => /*#__PURE__*/vue.createElementVNode("header", null, [
+    /*#__PURE__*/vue.createElementVNode("span", null, "書籤索引"),
+    /*#__PURE__*/vue.createElementVNode("span", null, "將當前的搜索加入書籤，並自訂名稱")
+  ], -1 /* HOISTED */));
   const _hoisted_2$2 = { class: "favorite-area" };
   const _hoisted_3$2 = { class: "favorite-pool" };
-  const _hoisted_4 = { class: "input-area" };
-  const _hoisted_5 = { class: "tooltip" };
-  vue.popScopeId();
+  const _hoisted_4$1 = ["href"];
+  const _hoisted_5 = { class: "input-area" };
+  const _hoisted_6 = { class: "tooltip" };
 
-  const render$2 = /*#__PURE__*/_withId$2((_ctx, _cache, $props, $setup, $data, $options) => {
-    return (vue.openBlock(), vue.createBlock("div", null, [
+  function render$2(_ctx, _cache, $props, $setup, $data, $options) {
+    return (vue.openBlock(), vue.createElementBlock("div", null, [
       _hoisted_1$2,
-      vue.createVNode("div", _hoisted_2$2, [
-        vue.createVNode("div", _hoisted_3$2, [
-          (vue.openBlock(true), vue.createBlock(vue.Fragment, null, vue.renderList($setup.favorites, (bangumi) => {
-            return (vue.openBlock(), vue.createBlock("a", {
+      vue.createElementVNode("div", _hoisted_2$2, [
+        vue.createElementVNode("div", _hoisted_3$2, [
+          (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($setup.favorites, (bangumi) => {
+            return (vue.openBlock(), vue.createElementBlock("a", {
               key: bangumi.title,
               href: $setup.createKeywordLink(bangumi.keyword),
               role: "button",
               class: "bangumi"
-            }, vue.toDisplayString(bangumi.title), 9 /* TEXT, PROPS */, ["href"]))
+            }, vue.toDisplayString(bangumi.title), 9 /* TEXT, PROPS */, _hoisted_4$1))
           }), 128 /* KEYED_FRAGMENT */))
         ]),
-        vue.createVNode("div", _hoisted_4, [
-          vue.withDirectives(vue.createVNode("input", {
+        vue.createElementVNode("div", _hoisted_5, [
+          vue.withDirectives(vue.createElementVNode("input", {
             ref: "titleInputEl",
-            "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => ($setup.userInputStr = $event)),
+            "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => (($setup.userInputStr) = $event)),
             type: "text",
             class: "user-title-input",
             placeholder: "為目前網址取名",
-            onInput: _cache[2] || (_cache[2] = $event => ($setup.setValidity(''))),
-            onFocus: _cache[3] || (_cache[3] = $event => ($setup.setValidity('')))
+            onInput: _cache[1] || (_cache[1] = $event => ($setup.setValidity(''))),
+            onFocus: _cache[2] || (_cache[2] = $event => ($setup.setValidity('')))
           }, null, 544 /* HYDRATE_EVENTS, NEED_PATCH */), [
             [vue.vModelText, $setup.userInputStr]
           ]),
-          vue.createVNode("span", _hoisted_5, vue.toDisplayString($setup.validityMsg), 1 /* TEXT */),
-          vue.createVNode("button", {
+          vue.createElementVNode("span", _hoisted_6, vue.toDisplayString($setup.validityMsg), 1 /* TEXT */),
+          vue.createElementVNode("button", {
             class: "add-btn",
-            onClick: _cache[4] || (_cache[4] = (...args) => ($setup.onClickAdd && $setup.onClickAdd(...args)))
+            onClick: _cache[3] || (_cache[3] = (...args) => ($setup.onClickAdd && $setup.onClickAdd(...args)))
           }, " 加入 "),
-          vue.createVNode("button", {
+          vue.createElementVNode("button", {
             class: "del-btn",
-            onClick: _cache[5] || (_cache[5] = (...args) => ($setup.onClickRemove && $setup.onClickRemove(...args)))
+            onClick: _cache[4] || (_cache[4] = (...args) => ($setup.onClickRemove && $setup.onClickRemove(...args)))
           }, " 刪除 ")
         ])
       ])
     ]))
-  });
+  }
 
   function styleInject(css, ref) {
     if ( ref === void 0 ) ref = {};
@@ -276,7 +274,7 @@
       `${BASE_URI}/${newold}.yaml`,
     );
 
-    const data = yaml__default['default'].load(txt);
+    const data = yaml__default["default"].load(txt);
     return YAMLToWeeklyBangumiPayload(data, newold === 'new');
   };
 
@@ -445,48 +443,46 @@
     },
   };
 
-  const _withId$1 = /*#__PURE__*/vue.withScopeId("data-v-b9eba4a6");
-
-  vue.pushScopeId("data-v-b9eba4a6");
-  const _hoisted_1$1 = /*#__PURE__*/vue.createVNode("span", null, "新番資源索引", -1 /* HOISTED */);
+  const _withScopeId = n => (vue.pushScopeId("data-v-b9eba4a6"),n=n(),vue.popScopeId(),n);
+  const _hoisted_1$1 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/vue.createElementVNode("span", null, "新番資源索引", -1 /* HOISTED */));
   const _hoisted_2$1 = { class: "weekly-table" };
   const _hoisted_3$1 = { class: "weekly-weekday-str" };
-  vue.popScopeId();
+  const _hoisted_4 = ["href"];
 
-  const render$1 = /*#__PURE__*/_withId$1((_ctx, _cache, $props, $setup, $data, $options) => {
-    return (vue.openBlock(), vue.createBlock("div", null, [
-      vue.createVNode("header", null, [
+  function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+    return (vue.openBlock(), vue.createElementBlock("div", null, [
+      vue.createElementVNode("header", null, [
         _hoisted_1$1,
-        vue.createVNode("span", null, vue.toDisplayString($setup.todayStr), 1 /* TEXT */),
-        vue.createVNode("span", null, [
-          vue.createVNode("a", {
+        vue.createElementVNode("span", null, vue.toDisplayString($setup.todayStr), 1 /* TEXT */),
+        vue.createElementVNode("span", null, [
+          vue.createElementVNode("a", {
             href: "javascript:;",
             role: "button",
-            onClick: _cache[1] || (_cache[1] = (...args) => ($setup.toggleExpansion && $setup.toggleExpansion(...args)))
+            onClick: _cache[0] || (_cache[0] = (...args) => ($setup.toggleExpansion && $setup.toggleExpansion(...args)))
           }, vue.toDisplayString($setup.expansionStr), 1 /* TEXT */)
         ]),
-        vue.createVNode("span", null, [
-          vue.createVNode("a", {
+        vue.createElementVNode("span", null, [
+          vue.createElementVNode("a", {
             href: "javascript:;",
             role: "button",
-            onClick: _cache[2] || (_cache[2] = (...args) => ($setup.forceUpdateWeekly && $setup.forceUpdateWeekly(...args)))
+            onClick: _cache[1] || (_cache[1] = (...args) => ($setup.forceUpdateWeekly && $setup.forceUpdateWeekly(...args)))
           }, "強制更新")
         ])
       ]),
-      vue.createVNode("table", _hoisted_2$1, [
-        (vue.openBlock(true), vue.createBlock(vue.Fragment, null, vue.renderList($setup.orderedWeeklyBangumi, ([weekday, dayBangumiList], index) => {
-          return vue.withDirectives((vue.openBlock(), vue.createBlock("tr", {
+      vue.createElementVNode("table", _hoisted_2$1, [
+        (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($setup.orderedWeeklyBangumi, ([weekday, dayBangumiList], index) => {
+          return vue.withDirectives((vue.openBlock(), vue.createElementBlock("tr", {
             key: weekday,
-            class: ["weekly-tr", { 'weekly-tr-today': index === 2 }]
+            class: vue.normalizeClass(["weekly-tr", { 'weekly-tr-today': index === 2 }])
           }, [
-            vue.createVNode("td", _hoisted_3$1, vue.toDisplayString($setup.transformWeekday(weekday)), 1 /* TEXT */),
-            vue.createVNode("td", null, [
-              (vue.openBlock(true), vue.createBlock(vue.Fragment, null, vue.renderList(dayBangumiList, (bangumi) => {
-                return (vue.openBlock(), vue.createBlock("a", {
+            vue.createElementVNode("td", _hoisted_3$1, vue.toDisplayString($setup.transformWeekday(weekday)), 1 /* TEXT */),
+            vue.createElementVNode("td", null, [
+              (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(dayBangumiList, (bangumi) => {
+                return (vue.openBlock(), vue.createElementBlock("a", {
                   key: bangumi.title,
-                  class: ["bangumi", { 'bangumi-old': !bangumi.isnew }],
+                  class: vue.normalizeClass(["bangumi", { 'bangumi-old': !bangumi.isnew }]),
                   href: $setup.createKeywordLink(bangumi.keyword)
-                }, vue.toDisplayString(bangumi.title), 11 /* TEXT, CLASS, PROPS */, ["href"]))
+                }, vue.toDisplayString(bangumi.title), 11 /* TEXT, CLASS, PROPS */, _hoisted_4))
               }), 128 /* KEYED_FRAGMENT */))
             ])
           ], 2 /* CLASS */)), [
@@ -495,7 +491,7 @@
         }), 128 /* KEYED_FRAGMENT */))
       ])
     ]))
-  });
+  }
 
   var css_248z$1 = "\na[data-v-b9eba4a6] {\n  color: #247;\n  text-decoration: none;\n}\nheader[data-v-b9eba4a6] {\n  color: #fff;\n  background-color: #247;\n  padding: 5px;\n  display: flex;\n  font-size: 0.8rem;\n}\nheader > span[data-v-b9eba4a6]:nth-of-type(n + 2)::before {\n  content: \"::\";\n  padding: 0 8px;\n}\nheader > span > a[data-v-b9eba4a6] {\n  color: #fff;\n}\n.weekly-table[data-v-b9eba4a6] {\n  border-collapse: collapse;\n  width: 100%;\n}\n.weekly-tr[data-v-b9eba4a6] {\n  display: flex;\n  align-items: center;\n  border: 2px solid white;\n  background: white;\n}\n.weekly-tr.weekly-tr-today[data-v-b9eba4a6] {\n  background-color: #ff9;\n}\n.weekly-weekday-str[data-v-b9eba4a6] {\n  padding: 3px 15px;\n  margin-right: 3px;\n  background-color: #7e99be;\n  color: white;\n  font-weight: bolder;\n}\n.weekly-weekday-str + td[data-v-b9eba4a6] {\n  display: flex;\n  flex-flow: row wrap;\n  flex: 1;\n}\n.bangumi[data-v-b9eba4a6] {\n  border: 1px solid #ffa500;\n  padding: 2px;\n  margin: 1px 3px;\n  display: inline-flex;\n  align-items: center;\n}\n.bangumi-old[data-v-b9eba4a6] {\n  border: 1px solid #002fff;\n}\n";
   styleInject(css_248z$1);
@@ -525,28 +521,24 @@
     },
   };
 
-  const _withId = /*#__PURE__*/vue.withScopeId("data-v-da470c48");
-
-  vue.pushScopeId("data-v-da470c48");
   const _hoisted_1 = { id: "🌐" };
   const _hoisted_2 = /*#__PURE__*/vue.createTextVNode(" 新番索引 ");
   const _hoisted_3 = /*#__PURE__*/vue.createTextVNode(" 書籤索引 ");
-  vue.popScopeId();
 
-  const render = /*#__PURE__*/_withId((_ctx, _cache, $props, $setup, $data, $options) => {
+  function render(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_router_link = vue.resolveComponent("router-link");
     const _component_router_view = vue.resolveComponent("router-view");
 
-    return (vue.openBlock(), vue.createBlock("div", _hoisted_1, [
-      vue.createVNode("nav", null, [
+    return (vue.openBlock(), vue.createElementBlock("div", _hoisted_1, [
+      vue.createElementVNode("nav", null, [
         vue.createVNode(_component_router_link, { to: "/weekly" }, {
-          default: _withId(() => [
+          default: vue.withCtx(() => [
             _hoisted_2
           ]),
           _: 1 /* STABLE */
         }),
         vue.createVNode(_component_router_link, { to: "/favorite" }, {
-          default: _withId(() => [
+          default: vue.withCtx(() => [
             _hoisted_3
           ]),
           _: 1 /* STABLE */
@@ -554,7 +546,7 @@
       ]),
       vue.createVNode(_component_router_view, { class: "page-view" })
     ]))
-  });
+  }
 
   var css_248z = "\n#🌐[data-v-da470c48] {\n  margin-top: 20px;\n  font-size: 14px;\n}\na[data-v-da470c48] {\n  color: black;\n  text-decoration: none;\n}\nnav > a[data-v-da470c48] {\n  display: inline-block;\n  padding: 3px 15px;\n  background: #fff;\n  cursor: pointer;\n  border-top: 1px solid #247;\n  border-left: 1px solid #247;\n  border-right: 1px solid #247;\n  border-radius: 5px 5px 0 0;\n}\nnav > a.router-link-exact-active[data-v-da470c48] {\n  border-top: 3px solid dodgerblue;\n}\n.page-view[data-v-da470c48] {\n  border: 1px solid #247;\n}\n";
   styleInject(css_248z);
@@ -581,4 +573,4 @@
 
   unsafeWindow.DMHYBangumiIndex$app = app;
 
-}(Vue, LZString, jsyaml, VueRouter));
+})(Vue, VueRouter, LZString, jsyaml);

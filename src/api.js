@@ -1,5 +1,5 @@
 import yaml from 'js-yaml';
-import { WEEKDAY_STR, BASE_URI } from './constants';
+import { BASE_URI, WEEKDAY_STR } from './constants';
 
 const fetcher = async(url, options = {}) => {
   const defaultOptions = {

@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import { decompressFromBase64, compressToBase64 } from 'lz-string';
+import { compressToBase64, decompressFromBase64 } from 'lz-string';
 
 const STORAGE_KEY = 'DMHY-Bangumi-Index::favorite';
 export const favorites = ref([]);

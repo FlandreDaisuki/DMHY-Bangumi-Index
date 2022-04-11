@@ -1,7 +1,7 @@
 import { compressToBase64, decompressFromBase64 } from 'lz-string';
+import { ref } from 'vue';
 import { HOUR_IN_MS, WEEKDAY_STR } from '../constants';
 import { downloadBangumi } from '../api';
-import { ref } from 'vue';
 
 export const weeklyBangumi = ref({});
 
