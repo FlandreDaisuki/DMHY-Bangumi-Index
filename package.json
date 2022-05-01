@@ -20,17 +20,17 @@
   "dependencies": {
     "js-yaml": "^4.1.0",
     "lz-string": "^1.4.4",
-    "vue": "^3.2.31",
+    "vue": "^3.2.33",
     "vue-router": "^4.0.14"
   },
   "devDependencies": {
     "@flandredaisuki/eslint-config": "^0.0.3",
-    "@rollup/plugin-commonjs": "^21.0.3",
-    "@vue/compiler-sfc": "^3.2.31",
-    "eslint": "^8.13.0",
-    "eslint-plugin-vue": "^8.6.0",
-    "postcss": "^8.4.12",
-    "rollup": "^2.70.1",
+    "@rollup/plugin-commonjs": "^21.1.0",
+    "@vue/compiler-sfc": "^3.2.33",
+    "eslint": "^8.14.0",
+    "eslint-plugin-vue": "^8.7.1",
+    "postcss": "^8.4.13",
+    "rollup": "^2.71.1",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-userscript-metablock": "^0.3.1",
     "rollup-plugin-vue": "^6.0.0"
