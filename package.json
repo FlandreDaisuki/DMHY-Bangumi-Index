@@ -29,7 +29,7 @@
     "@vue/compiler-sfc": "^3.2.33",
     "eslint": "^8.14.0",
     "eslint-plugin-vue": "^8.7.1",
-    "postcss": "^8.4.13",
+    "postcss": "^8.4.31",
     "rollup": "^2.71.1",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-userscript-metablock": "^0.3.1",
