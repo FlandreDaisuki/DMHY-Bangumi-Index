@@ -16,16 +16,12 @@
 // @connect   flandredaisuki.github.io
 // @license   MIT
 // @noframes
-// @version   1.2.2
+// @version   1.3.0
 // @grant     GM_xmlhttpRequest
 // @grant     unsafeWindow
 // ==/UserScript==
 (function (vue, vueRouter, lzString, yaml) {
   'use strict';
-
-  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-  var yaml__default = /*#__PURE__*/_interopDefaultLegacy(yaml);
 
   const HOUR_IN_MS = 60 * 60 * 1000;
 
@@ -140,8 +136,8 @@
     /*#__PURE__*/vue.createElementVNode("span", null, "書籤索引"),
     /*#__PURE__*/vue.createElementVNode("span", null, "將當前的搜索加入書籤，並自訂名稱")
   ], -1 /* HOISTED */));
-  const _hoisted_2$2 = { class: "favorite-area" };
-  const _hoisted_3$2 = { class: "favorite-pool" };
+  const _hoisted_2$1 = { class: "favorite-area" };
+  const _hoisted_3$1 = { class: "favorite-pool" };
   const _hoisted_4$1 = ["href"];
   const _hoisted_5 = { class: "input-area" };
   const _hoisted_6 = { class: "tooltip" };
@@ -149,8 +145,8 @@
   function render$2(_ctx, _cache, $props, $setup, $data, $options) {
     return (vue.openBlock(), vue.createElementBlock("div", null, [
       _hoisted_1$2,
-      vue.createElementVNode("div", _hoisted_2$2, [
-        vue.createElementVNode("div", _hoisted_3$2, [
+      vue.createElementVNode("div", _hoisted_2$1, [
+        vue.createElementVNode("div", _hoisted_3$1, [
           (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($setup.favorites, (bangumi) => {
             return (vue.openBlock(), vue.createElementBlock("a", {
               key: bangumi.title,
@@ -274,7 +270,7 @@
       `${BASE_URI}/${newold}.yaml`,
     );
 
-    const data = yaml__default["default"].load(txt);
+    const data = yaml.load(txt);
     return YAMLToWeeklyBangumiPayload(data, newold === 'new');
   };
 
@@ -445,8 +441,8 @@
 
   const _withScopeId = n => (vue.pushScopeId("data-v-b9eba4a6"),n=n(),vue.popScopeId(),n);
   const _hoisted_1$1 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/vue.createElementVNode("span", null, "新番資源索引", -1 /* HOISTED */));
-  const _hoisted_2$1 = { class: "weekly-table" };
-  const _hoisted_3$1 = { class: "weekly-weekday-str" };
+  const _hoisted_2 = { class: "weekly-table" };
+  const _hoisted_3 = { class: "weekly-weekday-str" };
   const _hoisted_4 = ["href"];
 
   function render$1(_ctx, _cache, $props, $setup, $data, $options) {
@@ -469,13 +465,13 @@
           }, "強制更新")
         ])
       ]),
-      vue.createElementVNode("table", _hoisted_2$1, [
+      vue.createElementVNode("table", _hoisted_2, [
         (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($setup.orderedWeeklyBangumi, ([weekday, dayBangumiList], index) => {
           return vue.withDirectives((vue.openBlock(), vue.createElementBlock("tr", {
             key: weekday,
             class: vue.normalizeClass(["weekly-tr", { 'weekly-tr-today': index === 2 }])
           }, [
-            vue.createElementVNode("td", _hoisted_3$1, vue.toDisplayString($setup.transformWeekday(weekday)), 1 /* TEXT */),
+            vue.createElementVNode("td", _hoisted_3, vue.toDisplayString($setup.transformWeekday(weekday)), 1 /* TEXT */),
             vue.createElementVNode("td", null, [
               (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(dayBangumiList, (bangumi) => {
                 return (vue.openBlock(), vue.createElementBlock("a", {
@@ -522,8 +518,6 @@
   };
 
   const _hoisted_1 = { id: "🌐" };
-  const _hoisted_2 = /*#__PURE__*/vue.createTextVNode(" 新番索引 ");
-  const _hoisted_3 = /*#__PURE__*/vue.createTextVNode(" 書籤索引 ");
 
   function render(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_router_link = vue.resolveComponent("router-link");
@@ -533,13 +527,13 @@
       vue.createElementVNode("nav", null, [
         vue.createVNode(_component_router_link, { to: "/weekly" }, {
           default: vue.withCtx(() => [
-            _hoisted_2
+            vue.createTextVNode(" 新番索引 ")
           ]),
           _: 1 /* STABLE */
         }),
         vue.createVNode(_component_router_link, { to: "/favorite" }, {
           default: vue.withCtx(() => [
-            _hoisted_3
+            vue.createTextVNode(" 書籤索引 ")
           ]),
           _: 1 /* STABLE */
         })
