@@ -1,31 +1,45 @@
 {
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-    "editor.tabSize": 2,
-    "eslint.validate": [
-        "vue",
-        "javascript",
-        "javascriptreact"
-    ],
-    "cSpell.ignoreWords": [
-        "isnew",
-        "jsyaml",
-        "newold"
-    ],
-    "cSpell.words": [
-        "bangumi",
-        "dmhy",
-        "metablock",
-        "noframes"
-    ],
-    "cSpell.ignorePaths": [
-        "**/package-lock.json",
-        "**/node_modules/**",
-        "**/vscode-extension/**",
-        "**/.git/objects/**",
-        ".vscode",
-        "dist",
-        "docs"
-    ]
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.tabSize": 2,
+
+  // Enable the ESlint flat config support
+  "eslint.experimental.useFlatConfig": true,
+
+  // Enable eslint for all supported languages
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml"
+  ],
+
+  "cSpell.ignoreWords": [
+    "isnew",
+    "jsyaml",
+    "newold"
+  ],
+  "cSpell.words": [
+    "bangumi",
+    "dmhy",
+    "metablock",
+    "noframes"
+  ],
+  "cSpell.ignorePaths": [
+    "**/package-lock.json",
+    "**/node_modules/**",
+    "**/vscode-extension/**",
+    "**/.git/objects/**",
+    ".vscode",
+    "dist",
+    "docs"
+  ]
 }

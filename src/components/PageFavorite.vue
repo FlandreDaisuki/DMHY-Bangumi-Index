@@ -1,45 +1,7 @@
-<template>
-  <div>
-    <header>
-      <span>書籤索引</span>
-      <span>將當前的搜索加入書籤，並自訂名稱</span>
-    </header>
-    <div class="favorite-area">
-      <div class="favorite-pool">
-        <a
-          v-for="bangumi in favorites"
-          :key="bangumi.title"
-          :href="createKeywordLink(bangumi.keyword)"
-          role="button"
-          class="bangumi"
-        >{{ bangumi.title }}</a>
-      </div>
-      <div class="input-area">
-        <input
-          ref="titleInputEl"
-          v-model="userInputStr"
-          type="text"
-          class="user-title-input"
-          placeholder="為目前網址取名"
-          @input="setValidity('')"
-          @focus="setValidity('')"
-        />
-        <span class="tooltip">{{ validityMsg }}</span>
-        <button class="add-btn" @click="onClickAdd">
-          加入
-        </button>
-        <button class="del-btn" @click="onClickRemove">
-          刪除
-        </button>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 import { computed, ref } from 'vue';
 import { createKeywordLink } from '../utils';
-import { favorites, find, add, remove } from '../store/favorite';
+import { add, favorites, find, remove } from '../store/favorite';
 
 export default {
   setup() {
@@ -76,6 +38,44 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div>
+    <header>
+      <span>書籤索引</span>
+      <span>將當前的搜索加入書籤，並自訂名稱</span>
+    </header>
+    <div class="favorite-area">
+      <div class="favorite-pool">
+        <a
+          v-for="bangumi in favorites"
+          :key="bangumi.title"
+          :href="createKeywordLink(bangumi.keyword)"
+          role="button"
+          class="bangumi"
+        >{{ bangumi.title }}</a>
+      </div>
+      <div class="input-area">
+        <input
+          ref="titleInputEl"
+          v-model="userInputStr"
+          type="text"
+          class="user-title-input"
+          placeholder="為目前網址取名"
+          @input="setValidity('')"
+          @focus="setValidity('')"
+        >
+        <span class="tooltip">{{ validityMsg }}</span>
+        <button class="add-btn" @click="onClickAdd">
+          加入
+        </button>
+        <button class="del-btn" @click="onClickRemove">
+          刪除
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 a {

@@ -1,17 +1,3 @@
-<template>
-  <div id="🌐">
-    <nav>
-      <router-link to="/weekly">
-        新番索引
-      </router-link>
-      <router-link to="/favorite">
-        書籤索引
-      </router-link>
-    </nav>
-    <router-view class="page-view" />
-  </div>
-</template>
-
 <script>
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
@@ -30,6 +16,20 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div id="🌐">
+    <nav>
+      <router-link to="/weekly">
+        新番索引
+      </router-link>
+      <router-link to="/favorite">
+        書籤索引
+      </router-link>
+    </nav>
+    <router-view class="page-view" />
+  </div>
+</template>
 
 <style scoped>
 #🌐 {

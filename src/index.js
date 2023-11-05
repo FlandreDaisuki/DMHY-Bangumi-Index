@@ -1,4 +1,6 @@
-import './constants'; // put constant as front as possible
+// put constant as front as possible
+import './constants';
+
 import { createApp } from 'vue';
 
 import { router } from './router';

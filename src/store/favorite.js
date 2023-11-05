@@ -9,7 +9,8 @@ export const load = () => {
   if (!fav) { favorites.value = []; }
   try {
     favorites.value = JSON.parse(decompressFromBase64(fav));
-  } catch {
+  }
+  catch {
     favorites.value = [];
   }
 };

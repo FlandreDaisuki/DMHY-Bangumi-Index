@@ -1,3 +1,66 @@
+<script>
+import { computed } from 'vue';
+import { WEEKDAY_STR } from '../constants';
+import { createKeywordLink, transformWeekday } from '../utils';
+import * as expansion from '../store/expansion';
+import { cleanCacheTime, weeklyBangumi } from '../store/weeklyBangumi';
+
+export default {
+  setup() {
+    const date = new Date();
+    const todayWeekday = date.getDay();
+    const toggleExpansion = () => expansion.set(!expansion.get());
+
+    const expansionStr = computed(() => expansion.get() ? '收起' : '展開');
+    const todayStr = computed(() => {
+      const longWeekdayStr = new Intl.DateTimeFormat('zh', {
+        weekday: 'long',
+      }).format(date);
+
+      const dateStr = new Intl.DateTimeFormat('zh', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      }).format(date);
+
+      return `西元 ${dateStr} ${longWeekdayStr}`;
+    });
+
+    const TODAY_SENSITIVE_WEEKDAY_STR = WEEKDAY_STR.repeat(3)
+      .slice(todayWeekday + 5, todayWeekday + 12);
+
+    const orderedWeeklyBangumi = computed(() => {
+      const weeklyBangumiMap = [...TODAY_SENSITIVE_WEEKDAY_STR].reduce(
+        (collection, weekdayStr) => {
+          return collection.set(weekdayStr, weeklyBangumi.value[weekdayStr]);
+        },
+        new Map(),
+      );
+      return [...weeklyBangumiMap.entries()];
+    });
+
+    const forceUpdateWeekly = async () => {
+      cleanCacheTime();
+      location.assign('https://share.dmhy.org/');
+    };
+
+    const isIndexShow = (index) => expansion.get() ? true : index < 4;
+
+    return {
+      todayStr,
+      expansionStr,
+      orderedWeeklyBangumi,
+
+      toggleExpansion,
+      createKeywordLink,
+      transformWeekday,
+      isIndexShow,
+      forceUpdateWeekly,
+    };
+  },
+};
+</script>
+
 <template>
   <div>
     <header>
@@ -34,69 +97,6 @@
     </table>
   </div>
 </template>
-
-<script>
-import { computed } from 'vue';
-import { WEEKDAY_STR } from '../constants';
-import { createKeywordLink, transformWeekday } from '../utils';
-import * as expansion from '../store/expansion';
-import { weeklyBangumi, cleanCacheTime } from '../store/weeklyBangumi';
-
-export default {
-  setup() {
-    const date = new Date();
-    const todayWeekday = date.getDay();
-    const toggleExpansion = () => expansion.set(!expansion.get());
-
-    const expansionStr = computed(() => expansion.get() ? '收起' : '展開');
-    const todayStr = computed(() => {
-      const longWeekdayStr = new Intl.DateTimeFormat('zh', {
-        weekday: 'long',
-      }).format(date);
-
-      const dateStr = new Intl.DateTimeFormat('zh', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-      }).format(date);
-
-      return `西元 ${dateStr} ${longWeekdayStr}`;
-    });
-
-    const TODAY_SENSITIVE_WEEKDAY_STR = WEEKDAY_STR.repeat(3)
-      .slice(todayWeekday + 5, todayWeekday + 12);
-
-    const orderedWeeklyBangumi = computed(() => {
-      const weeklyBangumiMap = [...TODAY_SENSITIVE_WEEKDAY_STR].reduce(
-        (collection, weekdayStr) => {
-          return collection.set(weekdayStr, weeklyBangumi.value[weekdayStr]);
-        },
-        new Map(),
-      );
-      return [...weeklyBangumiMap.entries()];
-    });
-
-    const forceUpdateWeekly = async() => {
-      cleanCacheTime();
-      location.assign('https://share.dmhy.org/');
-    };
-
-    const isIndexShow = (index) => expansion.get() ? true : index < 4;
-
-    return {
-      todayStr,
-      expansionStr,
-      orderedWeeklyBangumi,
-
-      toggleExpansion,
-      createKeywordLink,
-      transformWeekday,
-      isIndexShow,
-      forceUpdateWeekly,
-    };
-  },
-};
-</script>
 
 <style scoped>
 a {

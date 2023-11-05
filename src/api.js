@@ -1,7 +1,7 @@
 import yaml from 'js-yaml';
 import { BASE_URI, WEEKDAY_STR } from './constants';
 
-const fetcher = async(url, options = {}) => {
+const fetcher = async (url, options = {}) => {
   const defaultOptions = {
     method: 'GET',
     headers: {
@@ -40,7 +40,7 @@ const YAMLToWeeklyBangumiPayload = (data, isnew) => {
   return weeklyBangumiPayload;
 };
 
-export const downloadBangumi = async(newold) => {
+export const downloadBangumi = async (newold) => {
   const txt = await fetcher(
     `${BASE_URI}/${newold}.yaml`,
   );

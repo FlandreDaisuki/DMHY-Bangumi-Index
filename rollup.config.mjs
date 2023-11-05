@@ -1,4 +1,5 @@
-import fs from 'fs';
+import fs from 'node:fs';
+import process from 'node:process';
 import vue from 'rollup-plugin-vue';
 import postcss from 'rollup-plugin-postcss';
 import commonjs from '@rollup/plugin-commonjs';

@@ -16,7 +16,7 @@
 // @connect   flandredaisuki.github.io
 // @license   MIT
 // @noframes
-// @version   1.3.0
+// @version   1.3.1
 // @grant     GM_xmlhttpRequest
 // @grant     unsafeWindow
 // ==/UserScript==
@@ -60,7 +60,8 @@
     if (!fav) { favorites.value = []; }
     try {
       favorites.value = JSON.parse(lzString.decompressFromBase64(fav));
-    } catch {
+    }
+    catch {
       favorites.value = [];
     }
   };
@@ -131,7 +132,7 @@
     },
   };
 
-  const _withScopeId$1 = n => (vue.pushScopeId("data-v-138c4132"),n=n(),vue.popScopeId(),n);
+  const _withScopeId$1 = n => (vue.pushScopeId("data-v-65175dc4"),n=n(),vue.popScopeId(),n);
   const _hoisted_1$2 = /*#__PURE__*/ _withScopeId$1(() => /*#__PURE__*/vue.createElementVNode("header", null, [
     /*#__PURE__*/vue.createElementVNode("span", null, "書籤索引"),
     /*#__PURE__*/vue.createElementVNode("span", null, "將當前的搜索加入書籤，並自訂名稱")
@@ -209,11 +210,11 @@
     }
   }
 
-  var css_248z$2 = "\na[data-v-138c4132] {\n  color: #247;\n  text-decoration: none;\n}\nheader[data-v-138c4132] {\n  color: #fff;\n  background-color: #247;\n  padding: 5px;\n  display: flex;\n  font-size: 0.8rem;\n}\nheader > span[data-v-138c4132]:nth-of-type(n + 2)::before {\n  content: '::';\n  padding: 0 8px;\n}\nheader > span > a[data-v-138c4132] {\n  color: #fff;\n}\n.favorite-area[data-v-138c4132] {\n  background-color: #fff;\n}\n.favorite-pool[data-v-138c4132] {\n  padding: 10px;\n  min-height: 14px;\n  display: flex;\n}\n.bangumi[data-v-138c4132] {\n  border: 1px solid #ffa500;\n  padding: 2px;\n  margin: 1px 3px;\n  display: inline-flex;\n  align-items: center;\n}\n.input-area[data-v-138c4132] {\n  display: flex;\n  justify-content: center;\n  padding: 4px;\n  border-top: 1px dotted #247;\n}\n.input-area > *[data-v-138c4132] {\n  margin: 0 15px;\n}\n.input-area > .user-title-input[data-v-138c4132] {\n  border: 1px solid #247;\n  padding: 0 7px;\n  border-radius: 5px;\n  font-size: 14px;\n}\n.tooltip[data-v-138c4132] {\n  position: absolute;\n  background-color: #000;\n  color: white;\n  padding: 5px 10px;\n  border-radius: 5px;\n  transform-origin: bottom center;\n  transform: translateY(-35px);\n  display: none;\n}\n.tooltip[data-v-138c4132]::after {\n  content: '';\n  width: 0;\n  height: 0;\n  border-left: 5px solid transparent;\n  border-right: 5px solid transparent;\n  border-top: 5px solid black;\n  position: absolute;\n  top: 100%;\n  right: 20%;\n}\n.user-title-input:invalid + .tooltip[data-v-138c4132] {\n  display: block;\n}\n.input-area > button[data-v-138c4132] {\n  border: none;\n  border-radius: 5px;\n  padding: 5px 21px;\n  font-size: 14px;\n}\n.input-area > button.add-btn[data-v-138c4132] {\n  background-color: lightgreen;\n}\n.input-area > button.del-btn[data-v-138c4132] {\n  background-color: crimson;\n  color: white;\n}\n";
+  var css_248z$2 = "\na[data-v-65175dc4] {\n  color: #247;\n  text-decoration: none;\n}\nheader[data-v-65175dc4] {\n  color: #fff;\n  background-color: #247;\n  padding: 5px;\n  display: flex;\n  font-size: 0.8rem;\n}\nheader > span[data-v-65175dc4]:nth-of-type(n + 2)::before {\n  content: '::';\n  padding: 0 8px;\n}\nheader > span > a[data-v-65175dc4] {\n  color: #fff;\n}\n.favorite-area[data-v-65175dc4] {\n  background-color: #fff;\n}\n.favorite-pool[data-v-65175dc4] {\n  padding: 10px;\n  min-height: 14px;\n  display: flex;\n}\n.bangumi[data-v-65175dc4] {\n  border: 1px solid #ffa500;\n  padding: 2px;\n  margin: 1px 3px;\n  display: inline-flex;\n  align-items: center;\n}\n.input-area[data-v-65175dc4] {\n  display: flex;\n  justify-content: center;\n  padding: 4px;\n  border-top: 1px dotted #247;\n}\n.input-area > *[data-v-65175dc4] {\n  margin: 0 15px;\n}\n.input-area > .user-title-input[data-v-65175dc4] {\n  border: 1px solid #247;\n  padding: 0 7px;\n  border-radius: 5px;\n  font-size: 14px;\n}\n.tooltip[data-v-65175dc4] {\n  position: absolute;\n  background-color: #000;\n  color: white;\n  padding: 5px 10px;\n  border-radius: 5px;\n  transform-origin: bottom center;\n  transform: translateY(-35px);\n  display: none;\n}\n.tooltip[data-v-65175dc4]::after {\n  content: '';\n  width: 0;\n  height: 0;\n  border-left: 5px solid transparent;\n  border-right: 5px solid transparent;\n  border-top: 5px solid black;\n  position: absolute;\n  top: 100%;\n  right: 20%;\n}\n.user-title-input:invalid + .tooltip[data-v-65175dc4] {\n  display: block;\n}\n.input-area > button[data-v-65175dc4] {\n  border: none;\n  border-radius: 5px;\n  padding: 5px 21px;\n  font-size: 14px;\n}\n.input-area > button.add-btn[data-v-65175dc4] {\n  background-color: lightgreen;\n}\n.input-area > button.del-btn[data-v-65175dc4] {\n  background-color: crimson;\n  color: white;\n}\n";
   styleInject(css_248z$2);
 
   script$2.render = render$2;
-  script$2.__scopeId = "data-v-138c4132";
+  script$2.__scopeId = "data-v-65175dc4";
 
   const STORAGE_KEY$1 = 'DMHY-Bangumi-Index::expansion';
 
@@ -226,7 +227,7 @@
     localStorage.setItem(STORAGE_KEY$1, expansion.value);
   };
 
-  const fetcher = async(url, options = {}) => {
+  const fetcher = async (url, options = {}) => {
     const defaultOptions = {
       method: 'GET',
       headers: {
@@ -265,7 +266,7 @@
     return weeklyBangumiPayload;
   };
 
-  const downloadBangumi = async(newold) => {
+  const downloadBangumi = async (newold) => {
     const txt = await fetcher(
       `${BASE_URI}/${newold}.yaml`,
     );
@@ -345,7 +346,8 @@
     const xwb = localStorage.getItem(STORAGE_KEY);
     if (xwb) {
       weeklyBangumi.value = decodeWeeklyBangumiFromStorage(xwb) || {};
-    } else {
+    }
+    else {
       weeklyBangumi.value = {};
     }
   };
@@ -359,7 +361,7 @@
     }
   };
 
-  const loadRemote = async() => {
+  const loadRemote = async () => {
     const [oldPayload, newPayload] = await Promise.all([
       downloadBangumi('old'),
       downloadBangumi('new'),
@@ -370,12 +372,13 @@
     save();
   };
 
-  const loadWithCache = async() => {
+  const loadWithCache = async () => {
     const cacheTime = Number(localStorage.getItem(CACHE_KEY)) || 0;
     const maxCacheTime = 12 * HOUR_IN_MS;
     if (Date.now() - cacheTime > maxCacheTime) {
       await loadRemote();
-    } else {
+    }
+    else {
       load();
     }
   };
@@ -418,7 +421,7 @@
         return [...weeklyBangumiMap.entries()];
       });
 
-      const forceUpdateWeekly = async() => {
+      const forceUpdateWeekly = async () => {
         cleanCacheTime();
         location.assign('https://share.dmhy.org/');
       };
@@ -439,7 +442,7 @@
     },
   };
 
-  const _withScopeId = n => (vue.pushScopeId("data-v-b9eba4a6"),n=n(),vue.popScopeId(),n);
+  const _withScopeId = n => (vue.pushScopeId("data-v-5ce41dcd"),n=n(),vue.popScopeId(),n);
   const _hoisted_1$1 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/vue.createElementVNode("span", null, "新番資源索引", -1 /* HOISTED */));
   const _hoisted_2 = { class: "weekly-table" };
   const _hoisted_3 = { class: "weekly-weekday-str" };
@@ -489,11 +492,11 @@
     ]))
   }
 
-  var css_248z$1 = "\na[data-v-b9eba4a6] {\n  color: #247;\n  text-decoration: none;\n}\nheader[data-v-b9eba4a6] {\n  color: #fff;\n  background-color: #247;\n  padding: 5px;\n  display: flex;\n  font-size: 0.8rem;\n}\nheader > span[data-v-b9eba4a6]:nth-of-type(n + 2)::before {\n  content: \"::\";\n  padding: 0 8px;\n}\nheader > span > a[data-v-b9eba4a6] {\n  color: #fff;\n}\n.weekly-table[data-v-b9eba4a6] {\n  border-collapse: collapse;\n  width: 100%;\n}\n.weekly-tr[data-v-b9eba4a6] {\n  display: flex;\n  align-items: center;\n  border: 2px solid white;\n  background: white;\n}\n.weekly-tr.weekly-tr-today[data-v-b9eba4a6] {\n  background-color: #ff9;\n}\n.weekly-weekday-str[data-v-b9eba4a6] {\n  padding: 3px 15px;\n  margin-right: 3px;\n  background-color: #7e99be;\n  color: white;\n  font-weight: bolder;\n}\n.weekly-weekday-str + td[data-v-b9eba4a6] {\n  display: flex;\n  flex-flow: row wrap;\n  flex: 1;\n}\n.bangumi[data-v-b9eba4a6] {\n  border: 1px solid #ffa500;\n  padding: 2px;\n  margin: 1px 3px;\n  display: inline-flex;\n  align-items: center;\n}\n.bangumi-old[data-v-b9eba4a6] {\n  border: 1px solid #002fff;\n}\n";
+  var css_248z$1 = "\na[data-v-5ce41dcd] {\n  color: #247;\n  text-decoration: none;\n}\nheader[data-v-5ce41dcd] {\n  color: #fff;\n  background-color: #247;\n  padding: 5px;\n  display: flex;\n  font-size: 0.8rem;\n}\nheader > span[data-v-5ce41dcd]:nth-of-type(n + 2)::before {\n  content: \"::\";\n  padding: 0 8px;\n}\nheader > span > a[data-v-5ce41dcd] {\n  color: #fff;\n}\n.weekly-table[data-v-5ce41dcd] {\n  border-collapse: collapse;\n  width: 100%;\n}\n.weekly-tr[data-v-5ce41dcd] {\n  display: flex;\n  align-items: center;\n  border: 2px solid white;\n  background: white;\n}\n.weekly-tr.weekly-tr-today[data-v-5ce41dcd] {\n  background-color: #ff9;\n}\n.weekly-weekday-str[data-v-5ce41dcd] {\n  padding: 3px 15px;\n  margin-right: 3px;\n  background-color: #7e99be;\n  color: white;\n  font-weight: bolder;\n}\n.weekly-weekday-str + td[data-v-5ce41dcd] {\n  display: flex;\n  flex-flow: row wrap;\n  flex: 1;\n}\n.bangumi[data-v-5ce41dcd] {\n  border: 1px solid #ffa500;\n  padding: 2px;\n  margin: 1px 3px;\n  display: inline-flex;\n  align-items: center;\n}\n.bangumi-old[data-v-5ce41dcd] {\n  border: 1px solid #002fff;\n}\n";
   styleInject(css_248z$1);
 
   script$1.render = render$1;
-  script$1.__scopeId = "data-v-b9eba4a6";
+  script$1.__scopeId = "data-v-5ce41dcd";
 
   const routes = [
     { path: '/weekly', component: script$1 },
@@ -542,11 +545,13 @@
     ]))
   }
 
-  var css_248z = "\n#🌐[data-v-da470c48] {\n  margin-top: 20px;\n  font-size: 14px;\n}\na[data-v-da470c48] {\n  color: black;\n  text-decoration: none;\n}\nnav > a[data-v-da470c48] {\n  display: inline-block;\n  padding: 3px 15px;\n  background: #fff;\n  cursor: pointer;\n  border-top: 1px solid #247;\n  border-left: 1px solid #247;\n  border-right: 1px solid #247;\n  border-radius: 5px 5px 0 0;\n}\nnav > a.router-link-exact-active[data-v-da470c48] {\n  border-top: 3px solid dodgerblue;\n}\n.page-view[data-v-da470c48] {\n  border: 1px solid #247;\n}\n";
+  var css_248z = "\n#🌐[data-v-28e54048] {\n  margin-top: 20px;\n  font-size: 14px;\n}\na[data-v-28e54048] {\n  color: black;\n  text-decoration: none;\n}\nnav > a[data-v-28e54048] {\n  display: inline-block;\n  padding: 3px 15px;\n  background: #fff;\n  cursor: pointer;\n  border-top: 1px solid #247;\n  border-left: 1px solid #247;\n  border-right: 1px solid #247;\n  border-radius: 5px 5px 0 0;\n}\nnav > a.router-link-exact-active[data-v-28e54048] {\n  border-top: 3px solid dodgerblue;\n}\n.page-view[data-v-28e54048] {\n  border: 1px solid #247;\n}\n";
   styleInject(css_248z);
 
   script.render = render;
-  script.__scopeId = "data-v-da470c48";
+  script.__scopeId = "data-v-28e54048";
+
+  // put constant as front as possible
 
   // pre-process
 

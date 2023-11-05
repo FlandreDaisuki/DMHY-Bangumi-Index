@@ -74,7 +74,8 @@ export const load = () => {
   const xwb = localStorage.getItem(STORAGE_KEY);
   if (xwb) {
     weeklyBangumi.value = decodeWeeklyBangumiFromStorage(xwb) || {};
-  } else {
+  }
+  else {
     weeklyBangumi.value = {};
   }
 };
@@ -88,7 +89,7 @@ export const add = (payload) => {
   }
 };
 
-export const loadRemote = async() => {
+export const loadRemote = async () => {
   const [oldPayload, newPayload] = await Promise.all([
     downloadBangumi('old'),
     downloadBangumi('new'),
@@ -99,12 +100,13 @@ export const loadRemote = async() => {
   save();
 };
 
-export const loadWithCache = async() => {
+export const loadWithCache = async () => {
   const cacheTime = Number(localStorage.getItem(CACHE_KEY)) || 0;
   const maxCacheTime = 12 * HOUR_IN_MS;
   if (Date.now() - cacheTime > maxCacheTime) {
     await loadRemote();
-  } else {
+  }
+  else {
     load();
   }
 };
