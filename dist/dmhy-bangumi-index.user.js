@@ -16,7 +16,7 @@
 // @connect   flandredaisuki.github.io
 // @license   MIT
 // @noframes
-// @version   1.3.1
+// @version   1.3.2
 // @grant     GM_xmlhttpRequest
 // @grant     unsafeWindow
 // ==/UserScript==
@@ -166,7 +166,7 @@
             placeholder: "為目前網址取名",
             onInput: _cache[1] || (_cache[1] = $event => ($setup.setValidity(''))),
             onFocus: _cache[2] || (_cache[2] = $event => ($setup.setValidity('')))
-          }, null, 544 /* HYDRATE_EVENTS, NEED_PATCH */), [
+          }, null, 544 /* NEED_HYDRATION, NEED_PATCH */), [
             [vue.vModelText, $setup.userInputStr]
           ]),
           vue.createElementVNode("span", _hoisted_6, vue.toDisplayString($setup.validityMsg), 1 /* TEXT */),
@@ -210,7 +210,7 @@
     }
   }
 
-  var css_248z$2 = "\na[data-v-65175dc4] {\n  color: #247;\n  text-decoration: none;\n}\nheader[data-v-65175dc4] {\n  color: #fff;\n  background-color: #247;\n  padding: 5px;\n  display: flex;\n  font-size: 0.8rem;\n}\nheader > span[data-v-65175dc4]:nth-of-type(n + 2)::before {\n  content: '::';\n  padding: 0 8px;\n}\nheader > span > a[data-v-65175dc4] {\n  color: #fff;\n}\n.favorite-area[data-v-65175dc4] {\n  background-color: #fff;\n}\n.favorite-pool[data-v-65175dc4] {\n  padding: 10px;\n  min-height: 14px;\n  display: flex;\n}\n.bangumi[data-v-65175dc4] {\n  border: 1px solid #ffa500;\n  padding: 2px;\n  margin: 1px 3px;\n  display: inline-flex;\n  align-items: center;\n}\n.input-area[data-v-65175dc4] {\n  display: flex;\n  justify-content: center;\n  padding: 4px;\n  border-top: 1px dotted #247;\n}\n.input-area > *[data-v-65175dc4] {\n  margin: 0 15px;\n}\n.input-area > .user-title-input[data-v-65175dc4] {\n  border: 1px solid #247;\n  padding: 0 7px;\n  border-radius: 5px;\n  font-size: 14px;\n}\n.tooltip[data-v-65175dc4] {\n  position: absolute;\n  background-color: #000;\n  color: white;\n  padding: 5px 10px;\n  border-radius: 5px;\n  transform-origin: bottom center;\n  transform: translateY(-35px);\n  display: none;\n}\n.tooltip[data-v-65175dc4]::after {\n  content: '';\n  width: 0;\n  height: 0;\n  border-left: 5px solid transparent;\n  border-right: 5px solid transparent;\n  border-top: 5px solid black;\n  position: absolute;\n  top: 100%;\n  right: 20%;\n}\n.user-title-input:invalid + .tooltip[data-v-65175dc4] {\n  display: block;\n}\n.input-area > button[data-v-65175dc4] {\n  border: none;\n  border-radius: 5px;\n  padding: 5px 21px;\n  font-size: 14px;\n}\n.input-area > button.add-btn[data-v-65175dc4] {\n  background-color: lightgreen;\n}\n.input-area > button.del-btn[data-v-65175dc4] {\n  background-color: crimson;\n  color: white;\n}\n";
+  var css_248z$2 = "\na[data-v-65175dc4] {\n  color: #247;\n  text-decoration: none;\n}\nheader[data-v-65175dc4] {\n  color: #fff;\n  background-color: #247;\n  padding: 5px;\n  display: flex;\n  font-size: 0.8rem;\n}\nheader > span[data-v-65175dc4]:nth-of-type(n + 2)::before {\n  content: '::';\n  padding: 0 8px;\n}\nheader > span > a[data-v-65175dc4] {\n  color: #fff;\n}\n.favorite-area[data-v-65175dc4] {\n  background-color: #fff;\n}\n.favorite-pool[data-v-65175dc4] {\n  padding: 10px;\n  min-height: 14px;\n  display: flex;\n}\n.bangumi[data-v-65175dc4] {\n  border: 1px solid #ffa500;\n  padding: 2px;\n  margin: 1px 3px;\n  display: inline-flex;\n  align-items: center;\n}\n.input-area[data-v-65175dc4] {\n  display: flex;\n  justify-content: center;\n  padding: 4px;\n  border-top: 1px dotted #247;\n}\n.input-area[data-v-65175dc4] > * {\n  margin: 0 15px;\n}\n.input-area > .user-title-input[data-v-65175dc4] {\n  border: 1px solid #247;\n  padding: 0 7px;\n  border-radius: 5px;\n  font-size: 14px;\n}\n.tooltip[data-v-65175dc4] {\n  position: absolute;\n  background-color: #000;\n  color: white;\n  padding: 5px 10px;\n  border-radius: 5px;\n  transform-origin: bottom center;\n  transform: translateY(-35px);\n  display: none;\n}\n.tooltip[data-v-65175dc4]::after {\n  content: '';\n  width: 0;\n  height: 0;\n  border-left: 5px solid transparent;\n  border-right: 5px solid transparent;\n  border-top: 5px solid black;\n  position: absolute;\n  top: 100%;\n  right: 20%;\n}\n.user-title-input:invalid + .tooltip[data-v-65175dc4] {\n  display: block;\n}\n.input-area > button[data-v-65175dc4] {\n  border: none;\n  border-radius: 5px;\n  padding: 5px 21px;\n  font-size: 14px;\n}\n.input-area > button.add-btn[data-v-65175dc4] {\n  background-color: lightgreen;\n}\n.input-area > button.del-btn[data-v-65175dc4] {\n  background-color: crimson;\n  color: white;\n}\n";
   styleInject(css_248z$2);
 
   script$2.render = render$2;
