@@ -1,18 +1,42 @@
 <script>
-import { onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { computed, onMounted, ref } from 'vue';
 import * as favorite from '../store/favorite';
 import * as weeklyBangumi from '../store/weeklyBangumi';
+import PageWeekly from './PageWeekly.vue';
+import PageFavorite from './PageFavorite.vue';
+
+const TAB_NAMES = Object.freeze({
+  WEEKLY: 'weekly',
+  FAVORITE: 'favorite',
+});
 
 export default {
+  components: {
+    PageFavorite,
+    PageWeekly,
+  },
   setup() {
-    const router = useRouter();
+    const tab = ref(TAB_NAMES.WEEKLY);
+
     onMounted(() => {
-      router.push('/weekly');
       favorite.load();
       favorite.save();
       weeklyBangumi.loadWithCache();
     });
+
+    return {
+      TAB_NAMES,
+
+      setTab: (tabName) => {
+        tab.value = tabName;
+      },
+      shouldShowWeeklyTab: computed(() => {
+        return tab.value === TAB_NAMES.WEEKLY;
+      }),
+      shouldShowFavoriteTab: computed(() => {
+        return tab.value === TAB_NAMES.FAVORITE;
+      }),
+    };
   },
 };
 </script>
@@ -20,14 +44,23 @@ export default {
 <template>
   <div id="🌐">
     <nav>
-      <router-link to="/weekly">
+      <button
+        type="button"
+        :class="{ 'active-tab': shouldShowWeeklyTab }"
+        @click="setTab(TAB_NAMES.WEEKLY)"
+      >
         新番索引
-      </router-link>
-      <router-link to="/favorite">
+      </button>
+      <button
+        type="button"
+        :class="{ 'active-tab': shouldShowFavoriteTab }"
+        @click="setTab(TAB_NAMES.FAVORITE)"
+      >
         書籤索引
-      </router-link>
+      </button>
     </nav>
-    <router-view class="page-view" />
+    <PageWeekly v-show="shouldShowWeeklyTab" />
+    <PageFavorite v-show="shouldShowFavoriteTab" />
   </div>
 </template>
 
@@ -36,21 +69,22 @@ export default {
   margin-top: 20px;
   font-size: 14px;
 }
-a {
+button {
+  font-size: 1rem;
   color: black;
   text-decoration: none;
 }
-nav > a {
+nav > button {
   display: inline-block;
-  padding: 3px 15px;
+  padding: 4px 16px;
   background: #fff;
   cursor: pointer;
-  border-top: 1px solid #247;
-  border-left: 1px solid #247;
-  border-right: 1px solid #247;
-  border-radius: 5px 5px 0 0;
+  border-width: 1px 1px 0 1px;
+  border-style: solid;
+  border-color: #247;
+  border-radius: 4px 4px 0 0;
 }
-nav > a.router-link-exact-active {
+nav > button.active-tab {
   border-top: 3px solid dodgerblue;
 }
 .page-view {

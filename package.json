@@ -1,7 +1,7 @@
 {
   "name": "dmhy-bangumi-index",
   "type": "module",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "Let DMHY header index back!",
   "author": "FlandreDaisuki",
   "license": "MIT",
@@ -21,8 +21,7 @@
   "dependencies": {
     "js-yaml": "^4.1.0",
     "lz-string": "^1.5.0",
-    "vue": "^3.4.23",
-    "vue-router": "^4.3.2"
+    "vue": "^3.4.23"
   },
   "devDependencies": {
     "@flandredaisuki/eslint-config": "^0.1.3",

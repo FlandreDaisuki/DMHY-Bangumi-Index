@@ -3,7 +3,6 @@ import './constants';
 
 import { createApp } from 'vue';
 
-import { router } from './router';
 import { $, $$ } from './utils';
 import MainComp from './components/Main.vue';
 
@@ -21,7 +20,6 @@ for (const adEl of $$(adSelectors)) {
 // entry point
 
 const app = createApp(MainComp)
-  .use(router)
   .mount($('#mini_jmd').parentElement);
 
 unsafeWindow.DMHYBangumiIndex$app = app;
