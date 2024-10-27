@@ -6,7 +6,7 @@
   "editor.tabSize": 2,
 
   // Enable the ESlint flat config support
-  "eslint.experimental.useFlatConfig": true,
+  "eslint.useFlatConfig": true,
 
   // Enable eslint for all supported languages
   "eslint.validate": [

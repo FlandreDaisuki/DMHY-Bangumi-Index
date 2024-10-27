@@ -4,7 +4,7 @@ import './constants';
 import { createApp } from 'vue';
 
 import { $, $$ } from './utils';
-import MainComp from './components/Main.vue';
+import App from './components/App.vue';
 
 // pre-process
 
@@ -19,7 +19,7 @@ for (const adEl of $$(adSelectors)) {
 
 // entry point
 
-const app = createApp(MainComp)
+const app = createApp(App)
   .mount($('#mini_jmd').parentElement);
 
 unsafeWindow.DMHYBangumiIndex$app = app;
