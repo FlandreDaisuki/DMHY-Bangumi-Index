@@ -16,10 +16,11 @@
 // @connect   flandredaisuki.github.io
 // @license   MIT
 // @noframes
-// @version   1.4.0
+// @version   1.5.0
 // @grant     GM_xmlhttpRequest
 // @grant     unsafeWindow
 // ==/UserScript==
+
 (function (vue, lzString, yaml) {
   'use strict';
 
@@ -35,20 +36,20 @@
   const createKeywordLink = (keyword) => `/topics/list?keyword=${keyword}`;
   const transformWeekday = (weekdayStr) => {
     switch (weekdayStr) {
-      case '日':
-        return '星期日（日）';
-      case '一':
-        return '星期一（月）';
-      case '二':
-        return '星期二（火）';
-      case '三':
-        return '星期三（水）';
-      case '四':
-        return '星期四（木）';
-      case '五':
-        return '星期五（金）';
-      case '六':
-        return '星期六（土）';
+    case '日':
+      return '星期日（日）';
+    case '一':
+      return '星期一（月）';
+    case '二':
+      return '星期二（火）';
+    case '三':
+      return '星期三（水）';
+    case '四':
+      return '星期四（木）';
+    case '五':
+      return '星期五（金）';
+    case '六':
+      return '星期六（土）';
     }
   };
 
@@ -323,16 +324,14 @@
     },
   };
 
-  const _withScopeId$1 = n => (vue.pushScopeId("data-v-5ce41dcd"),n=n(),vue.popScopeId(),n);
-  const _hoisted_1$2 = /*#__PURE__*/ _withScopeId$1(() => /*#__PURE__*/vue.createElementVNode("span", null, "新番資源索引", -1 /* HOISTED */));
-  const _hoisted_2$1 = { class: "weekly-table" };
-  const _hoisted_3$1 = { class: "weekly-weekday-str" };
-  const _hoisted_4$1 = ["href"];
+  const _hoisted_1$2 = { class: "weekly-table" };
+  const _hoisted_2$1 = { class: "weekly-weekday-str" };
+  const _hoisted_3$1 = ["href"];
 
   function render$2(_ctx, _cache, $props, $setup, $data, $options) {
     return (vue.openBlock(), vue.createElementBlock("div", null, [
       vue.createElementVNode("header", null, [
-        _hoisted_1$2,
+        _cache[2] || (_cache[2] = vue.createElementVNode("span", null, "新番資源索引", -1 /* HOISTED */)),
         vue.createElementVNode("span", null, vue.toDisplayString($setup.todayStr), 1 /* TEXT */),
         vue.createElementVNode("span", null, [
           vue.createElementVNode("a", {
@@ -349,20 +348,20 @@
           }, "強制更新")
         ])
       ]),
-      vue.createElementVNode("table", _hoisted_2$1, [
+      vue.createElementVNode("table", _hoisted_1$2, [
         (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($setup.orderedWeeklyBangumi, ([weekday, dayBangumiList], index) => {
           return vue.withDirectives((vue.openBlock(), vue.createElementBlock("tr", {
             key: weekday,
             class: vue.normalizeClass(["weekly-tr", { 'weekly-tr-today': index === 2 }])
           }, [
-            vue.createElementVNode("td", _hoisted_3$1, vue.toDisplayString($setup.transformWeekday(weekday)), 1 /* TEXT */),
+            vue.createElementVNode("td", _hoisted_2$1, vue.toDisplayString($setup.transformWeekday(weekday)), 1 /* TEXT */),
             vue.createElementVNode("td", null, [
               (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(dayBangumiList, (bangumi) => {
                 return (vue.openBlock(), vue.createElementBlock("a", {
                   key: bangumi.title,
                   class: vue.normalizeClass(["bangumi", { 'bangumi-old': !bangumi.isnew }]),
                   href: $setup.createKeywordLink(bangumi.keyword)
-                }, vue.toDisplayString(bangumi.title), 11 /* TEXT, CLASS, PROPS */, _hoisted_4$1))
+                }, vue.toDisplayString(bangumi.title), 11 /* TEXT, CLASS, PROPS */, _hoisted_3$1))
               }), 128 /* KEYED_FRAGMENT */))
             ])
           ], 2 /* CLASS */)), [
@@ -441,32 +440,30 @@
     },
   };
 
-  const _withScopeId = n => (vue.pushScopeId("data-v-65175dc4"),n=n(),vue.popScopeId(),n);
-  const _hoisted_1$1 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/vue.createElementVNode("header", null, [
-    /*#__PURE__*/vue.createElementVNode("span", null, "書籤索引"),
-    /*#__PURE__*/vue.createElementVNode("span", null, "將當前的搜索加入書籤，並自訂名稱")
-  ], -1 /* HOISTED */));
-  const _hoisted_2 = { class: "favorite-area" };
-  const _hoisted_3 = { class: "favorite-pool" };
-  const _hoisted_4 = ["href"];
-  const _hoisted_5 = { class: "input-area" };
-  const _hoisted_6 = { class: "tooltip" };
+  const _hoisted_1$1 = { class: "favorite-area" };
+  const _hoisted_2 = { class: "favorite-pool" };
+  const _hoisted_3 = ["href"];
+  const _hoisted_4 = { class: "input-area" };
+  const _hoisted_5 = { class: "tooltip" };
 
   function render$1(_ctx, _cache, $props, $setup, $data, $options) {
     return (vue.openBlock(), vue.createElementBlock("div", null, [
-      _hoisted_1$1,
-      vue.createElementVNode("div", _hoisted_2, [
-        vue.createElementVNode("div", _hoisted_3, [
+      _cache[5] || (_cache[5] = vue.createElementVNode("header", null, [
+        vue.createElementVNode("span", null, "書籤索引"),
+        vue.createElementVNode("span", null, "將當前的搜索加入書籤，並自訂名稱")
+      ], -1 /* HOISTED */)),
+      vue.createElementVNode("div", _hoisted_1$1, [
+        vue.createElementVNode("div", _hoisted_2, [
           (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($setup.favorites, (bangumi) => {
             return (vue.openBlock(), vue.createElementBlock("a", {
               key: bangumi.title,
               href: $setup.createKeywordLink(bangumi.keyword),
               role: "button",
               class: "bangumi"
-            }, vue.toDisplayString(bangumi.title), 9 /* TEXT, PROPS */, _hoisted_4))
+            }, vue.toDisplayString(bangumi.title), 9 /* TEXT, PROPS */, _hoisted_3))
           }), 128 /* KEYED_FRAGMENT */))
         ]),
-        vue.createElementVNode("div", _hoisted_5, [
+        vue.createElementVNode("div", _hoisted_4, [
           vue.withDirectives(vue.createElementVNode("input", {
             ref: "titleInputEl",
             "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => (($setup.userInputStr) = $event)),
@@ -478,7 +475,7 @@
           }, null, 544 /* NEED_HYDRATION, NEED_PATCH */), [
             [vue.vModelText, $setup.userInputStr]
           ]),
-          vue.createElementVNode("span", _hoisted_6, vue.toDisplayString($setup.validityMsg), 1 /* TEXT */),
+          vue.createElementVNode("span", _hoisted_5, vue.toDisplayString($setup.validityMsg), 1 /* TEXT */),
           vue.createElementVNode("button", {
             class: "add-btn",
             onClick: _cache[3] || (_cache[3] = (...args) => ($setup.onClickAdd && $setup.onClickAdd(...args)))
@@ -561,11 +558,11 @@
     ]))
   }
 
-  var css_248z = "\n#🌐[data-v-6d6a90d6] {\n  margin-top: 20px;\n  font-size: 14px;\n}\nbutton[data-v-6d6a90d6] {\n  font-size: 1rem;\n  color: black;\n  text-decoration: none;\n}\nnav > button[data-v-6d6a90d6] {\n  display: inline-block;\n  padding: 4px 16px;\n  background: #fff;\n  cursor: pointer;\n  border-width: 1px 1px 0 1px;\n  border-style: solid;\n  border-color: #247;\n  border-radius: 4px 4px 0 0;\n}\nnav > button.active-tab[data-v-6d6a90d6] {\n  border-top: 3px solid dodgerblue;\n}\n.page-view[data-v-6d6a90d6] {\n  border: 1px solid #247;\n}\n";
+  var css_248z = "\n#🌐[data-v-9efce4c4] {\n  margin-top: 20px;\n  font-size: 14px;\n}\nbutton[data-v-9efce4c4] {\n  font-size: 1rem;\n  color: black;\n  text-decoration: none;\n}\nnav > button[data-v-9efce4c4] {\n  display: inline-block;\n  padding: 4px 16px;\n  background: #fff;\n  cursor: pointer;\n  border-width: 1px 1px 0 1px;\n  border-style: solid;\n  border-color: #247;\n  border-radius: 4px 4px 0 0;\n}\nnav > button.active-tab[data-v-9efce4c4] {\n  border-top: 3px solid dodgerblue;\n}\n.page-view[data-v-9efce4c4] {\n  border: 1px solid #247;\n}\n";
   styleInject(css_248z);
 
   script.render = render;
-  script.__scopeId = "data-v-6d6a90d6";
+  script.__scopeId = "data-v-9efce4c4";
 
   // put constant as front as possible
 
